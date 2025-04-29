@@ -1,0 +1,13 @@
+/* Oration DEMO Font */
+@font-face {
+  font-family: 'Oration DEMO';
+  src: url('https://db.onlinewebfonts.com/t/2d065ca4a40a2d9e87c53a9a5d6a3f1d.eot');
+  src: url('https://db.onlinewebfonts.com/t/2d065ca4a40a2d9e87c53a9a5d6a3f1d.eot?#iefix') format('embedded-opentype'),
+       url('https://db.onlinewebfonts.com/t/2d065ca4a40a2d9e87c53a9a5d6a3f1d.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/2d065ca4a40a2d9e87c53a9a5d6a3f1d.woff') format('woff'),
+       url('https://db.onlinewebfonts.com/t/2d065ca4a40a2d9e87c53a9a5d6a3f1d.ttf') format('truetype'),
+       url('https://db.onlinewebfonts.com/t/2d065ca4a40a2d9e87c53a9a5d6a3f1d.svg#Oration DEMO') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
