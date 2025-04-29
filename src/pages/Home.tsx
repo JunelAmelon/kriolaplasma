@@ -380,8 +380,9 @@ const Home = () => {
               </h2>
               <p className="text-gray-600 mb-8">
                 Votre peau mérite le meilleur. Et si la réponse était dans le froid ?
+                <br></br>
                 Chez Kriola Plasma, nous ne vous vendons pas un produit, mais une révélation : celle d'une peau enfin libérée, transcendée, radicalement transformée.
-                <br></br> <br></br>
+                <br></br> 
                 Pas de promesses en l'air, juste des preuves. Parce que votre peau n'a pas besoin de rêves… mais de résultats.
               </p>
 
