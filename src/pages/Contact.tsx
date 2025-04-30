@@ -1,10 +1,95 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send, Star, Shield, Award } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import SuccessToast from '../components/SuccessToast';
 
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+    city: '',
+    postalCode: '',
+    country: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [error, setError] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess(false);
+
+    try {
+      // Identifiants EmailJS
+      const serviceId = 'service_44vrjjt';
+      const templateId = 'template_zey1pi4';
+      const publicKey = 'TyfUIOOjSF2kbLmzi';
+
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        form.current as HTMLFormElement,
+        publicKey
+      );
+
+      console.log('EmailJS response:', result);
+      // Définir le message et afficher le toast
+      setToastMessage('Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.');
+      setSuccess(true);
+      // Réinitialiser le formulaire
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        address: '',
+        city: '',
+        postalCode: '',
+        country: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    } catch (err) {
+      console.error('Erreur lors de l\'envoi de l\'email:', err);
+      setError('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fonction pour fermer le toast
+  const closeToast = () => {
+    setSuccess(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-primary/10 pt-32 pb-20">
+      {/* Toast de succès */}
+      <SuccessToast 
+        show={success} 
+        message={toastMessage} 
+        onClose={closeToast} 
+        duration={5000} 
+      />
+      
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -76,22 +161,36 @@ const Contact = () => {
                 Réponse sous 24h
               </div>
               
-              <form className="space-y-6">
+              <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+                {error && (
+                  <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-600">
+                    {error}
+                  </div>
+                )}
+                
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Prénom</label>
                     <input
                       type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                       placeholder="Votre prénom"
+                      required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Nom</label>
                     <input
                       type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                       placeholder="Votre nom"
+                      required
                     />
                   </div>
                 </div>
@@ -100,8 +199,12 @@ const Contact = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                     placeholder="votre@email.com"
+                    required
                   />
                 </div>
 
@@ -110,6 +213,9 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Adresse</label>
                     <input
                       type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                       placeholder="Votre adresse"
                     />
@@ -118,6 +224,9 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Ville</label>
                     <input
                       type="text"
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                       placeholder="Votre ville"
                     />
@@ -129,6 +238,9 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Code Postal</label>
                     <input
                       type="text"
+                      name="postalCode"
+                      value={formData.postalCode}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                       placeholder="Code postal"
                     />
@@ -137,6 +249,9 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Pays</label>
                     <input
                       type="text"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                       placeholder="Votre pays"
                     />
@@ -147,6 +262,9 @@ const Contact = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                     placeholder="Votre numéro de téléphone"
                   />
@@ -154,7 +272,13 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Sujet</label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300">
+                  <select 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
+                    required
+                  >
                     <option value="">Sélectionnez un sujet</option>
                     <option value="rdv">Prise de rendez-vous</option>
                     <option value="info">Demande d'informations</option>
@@ -167,17 +291,22 @@ const Contact = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                   <textarea
                     rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                     placeholder="Votre message..."
+                    required
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Envoyer le message
-                  <Send size={16} className="group-hover:translate-x-1 transition-transform" />
+                  {loading ? 'Envoi en cours...' : 'Envoyer le message'}
+                  {!loading && <Send size={16} className="group-hover:translate-x-1 transition-transform" />}
                 </button>
               </form>
             </div>
@@ -199,67 +328,73 @@ const Contact = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h3 className="text-2xl font-semibold mb-2">Votre Beauté, Notre Passion</h3>
-                <p className="text-white/80">Experts en soins esthétiques innovants</p>
+                <h2 className="text-2xl font-bold mb-2">Prenez Rendez-vous</h2>
+                <p className="text-white/80">
+                  Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions.
+                </p>
               </div>
             </div>
 
             {/* Contact Info Cards */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg">
-              <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                <MapPin className="text-primary" />
-                Nos Coordonnées
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-primary/5 transition-colors">
-                  <Phone className="text-primary mt-1" />
-                  <div>
-                    <p className="font-medium">Téléphone</p>
-                    <p className="text-gray-600">+33 1 23 45 67 89</p>
-                    <p className="text-sm text-gray-500">Lun-Ven: 9h-19h</p>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Phone */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
-
-                <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-primary/5 transition-colors">
-                  <Mail className="text-primary mt-1" />
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-gray-600">contact@kriola-plasma.com</p>
-                    <p className="text-sm text-gray-500">Réponse sous 24h</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-primary/5 transition-colors">
-                  <MapPin className="text-primary mt-1" />
-                  <div>
-                    <p className="font-medium">Adresse</p>
-                    <p className="text-gray-600">123 Avenue des Champs-Élysées</p>
-                    <p className="text-gray-600">75008 Paris, France</p>
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold mb-2">Téléphone</h3>
+                <p className="text-gray-600 mb-4">Nous sommes disponibles du lundi au samedi</p>
+                <a href="tel:+33123456789" className="text-primary font-medium hover:underline">
+                  +33 1 23 45 67 89
+                </a>
               </div>
-            </div>
 
-            {/* Hours Card */}
-            <div className="bg-gradient-to-br from-primary to-primary-dark p-6 rounded-2xl text-white">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Clock className="text-white" />
-                Horaires d'ouverture
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex justify-between items-center">
-                  <span>Lundi - Vendredi</span>
-                  <span>9h - 19h</span>
-                </li>
-                <li className="flex justify-between items-center">
-                  <span>Samedi</span>
-                  <span>10h - 18h</span>
-                </li>
-                <li className="flex justify-between items-center text-white/80">
-                  <span>Dimanche</span>
-                  <span>Fermé</span>
-                </li>
-              </ul>
+              {/* Email */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Mail className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Email</h3>
+                <p className="text-gray-600 mb-4">Réponse sous 24h ouvrées</p>
+                <a href="mailto:contact@kriolaplasma.com" className="text-primary font-medium hover:underline">
+                  contact@kriolaplasma.com
+                </a>
+              </div>
+
+              {/* Address */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Adresse</h3>
+                <p className="text-gray-600 mb-4">Venez nous rencontrer</p>
+                <address className="not-italic text-primary font-medium">
+                  123 Avenue des Champs-Élysées<br />
+                  75008 Paris, France
+                </address>
+              </div>
+
+              {/* Hours */}
+              <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Horaires</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li className="flex justify-between">
+                    <span>Lundi - Vendredi:</span>
+                    <span>9h - 19h</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Samedi:</span>
+                    <span>10h - 18h</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Dimanche:</span>
+                    <span>Fermé</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </motion.div>
         </div>
