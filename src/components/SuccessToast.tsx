@@ -34,7 +34,7 @@ const SuccessToast: React.FC<SuccessToastProps> = ({
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -20, scale: 0.9 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 max-w-md w-full"
+          className="fixed top-20 left-0 right-0 mx-auto z-50 max-w-md w-[92%] sm:w-[450px] px-4 sm:px-0"
         >
           <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
             <div className="flex items-center p-4 border-b border-gray-100">

@@ -278,6 +278,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300"
                     required
+                    aria-label="Sujet du message"
                   >
                     <option value="">Sélectionnez un sujet</option>
                     <option value="rdv">Prise de rendez-vous</option>
