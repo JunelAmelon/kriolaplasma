@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, Download, ShoppingBag, Sparkles, Zap, Droplet, Scissors, Brain, Heart, Leaf, Sun, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
 // Import Swiper styles
@@ -179,14 +180,14 @@ const Home = () => {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="flex flex-wrap gap-4"
               >
-                <button className="group bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:shadow-[0_0_20px_rgba(185,122,86,0.3)]">
+                <Link to="/reservation" className="group bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:shadow-[0_0_20px_rgba(185,122,86,0.3)]">
                   Réserver maintenant
                   <ArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="group bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:bg-white/20">
+                </Link>
+                <Link to="/services" className="group bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:bg-white/20">
                   Découvrir
                   <ChevronRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </motion.div>
 
               {/* Stats */}
@@ -416,10 +417,10 @@ const Home = () => {
                 ))}
               </ul>
 
-              <button className="group bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:shadow-2xl shadow-xl">
+              <Link to="/services" className="group bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:shadow-2xl shadow-xl">
                 En savoir plus
                 <ChevronRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -520,10 +521,10 @@ const Home = () => {
                             </li>
                           ))}
                         </ul>
-                        <button className="w-full mt-6 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
+                        <Link to="/reservation" className="w-full mt-6 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
                           Réserver
                           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </SwiperSlide>

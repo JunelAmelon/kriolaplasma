@@ -1,14 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
 import { 
-  Sparkles, 
   Zap, 
-  Droplet, 
   Scissors, 
   Brain, 
-  Heart, 
   Leaf, 
   Sun, 
   Star, 
@@ -225,10 +223,10 @@ const Services = () => {
                         </li>
                       ))}
                     </ul>
-                    <button className="w-full mt-6 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
+                    <Link to="/reservation" className="w-full mt-6 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
                       Réserver
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </SwiperSlide>
