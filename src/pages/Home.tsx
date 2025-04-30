@@ -198,10 +198,10 @@ const Home = () => {
                 className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16"
               >
                 {[
-                  { number: "15+", label: "Années d'expertise" },
-                  { number: "5k+", label: "Clients satisfaits" },
+                  { number: "5+", label: "Années d'expertise" },
+                  { number: "45+", label: "Clients satisfaits" },
                   { number: "98%", label: "Taux de satisfaction" },
-                  { number: "12+", label: "Prix d'excellence" },
+                  { number: "3+", label: "Prix d'excellence" },
                 ].map((stat, index) => (
                   <div key={index} className="text-center">
                     <div className="text-3xl font-bold text-primary">
