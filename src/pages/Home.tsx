@@ -417,10 +417,14 @@ const Home = () => {
                 ))}
               </ul>
 
-              <Link to="/services" className="group bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:shadow-2xl shadow-xl">
-                En savoir plus
-                <ChevronRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <Link
+  to="/services"
+  className="group bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/70"
+  style={{ width: 'fit-content', minWidth: '0' }}
+>
+  <ChevronRight size={18} className="-ml-1" />
+  En savoir plus
+</Link>
             </motion.div>
           </div>
         </div>
