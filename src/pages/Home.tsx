@@ -119,7 +119,7 @@ const Home = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-36 md:pt-48">
+      <section className="relative min-h-screen flex items-center justify-center pt-28 md:pt-40">
         {/* Background Image with darker overlay */}
         <div className="absolute inset-0 z-0">
           <img
