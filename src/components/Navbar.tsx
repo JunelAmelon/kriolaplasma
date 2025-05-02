@@ -20,9 +20,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full bg-white z-50 shadow-sm">
+      <nav className="fixed w-full bg-white z-50 shadow-sm py-6 md:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20">
+          <div className="flex justify-between h-48 md:h-56">
             <div className="flex items-center">
               <Link to="/" className="flex items-center gap-2">
                 {/* Replace with your actual logo image */}
