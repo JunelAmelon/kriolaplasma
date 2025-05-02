@@ -270,26 +270,17 @@ const Home = () => {
                   <p className="text-xs sm:text-sm font-medium">Résultats Garantis</p>
                 </motion.div>
 
-              
-
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.6 }}
-                  className="absolute -bottom-4 sm:-bottom-8 left-1/2 transform -translate-x-1/2 bg-white p-3 sm:p-4 rounded-xl shadow-xl w-48 sm:w-64 scale-75 sm:scale-100"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                  className="absolute -right-4 sm:-right-8 top-1/2 bg-white p-3 sm:p-4 rounded-xl shadow-xl scale-75 sm:scale-100"
                 >
-                  <div className="flex items-center gap-2 sm:gap-4">
-                    <Star className="text-primary" size={20} />
-                    <div>
-                      <p className="text-xs sm:text-sm font-medium">Note Moyenne</p>
-                      <div className="flex items-center gap-1">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <Star key={star} size={12} className="text-primary fill-primary" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  <Award className="text-primary mb-2" size={20} />
+                  <p className="text-xs sm:text-sm font-medium">Expert Certifié</p>
                 </motion.div>
+
+               
               </div>
             </motion.div>
           </div>
