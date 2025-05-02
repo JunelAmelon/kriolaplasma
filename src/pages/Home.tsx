@@ -270,15 +270,7 @@ const Home = () => {
                   <p className="text-xs sm:text-sm font-medium">Résultats Garantis</p>
                 </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  className="absolute -right-4 sm:-right-8 top-1/2 bg-white p-3 sm:p-4 rounded-xl shadow-xl scale-75 sm:scale-100"
-                >
-                  <Award className="text-primary mb-2" size={20} />
-                  <p className="text-xs sm:text-sm font-medium">Expert Certifié</p>
-                </motion.div>
+              
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

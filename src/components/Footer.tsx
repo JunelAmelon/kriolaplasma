@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <img 
-  src="./images/logo-white.png" 
+  src="./images/logowhite.png" 
   alt="Kriola Plasma Logo White" 
   style={{ height: '139px', width: 'auto' }}
   className="mb-4"
