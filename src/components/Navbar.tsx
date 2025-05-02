@@ -20,9 +20,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full bg-white z-50 shadow-sm py-6 md:py-8">
+      <nav className="fixed w-full bg-white z-50 shadow-sm py-2 md:py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-48 md:h-56">
+          <div className="flex justify-between h-28 md:h-32">
             <div className="flex items-center">
               <Link to="/" className="flex items-center gap-2">
                 {/* Replace with your actual logo image */}
@@ -30,7 +30,7 @@ const Navbar = () => {
                   <img 
                     src="./images/logo.png" 
                     alt="Kriola Plasma Logo" 
-                    className="h-40 w-auto"
+                    className="h-20 w-auto"
                   />
                 </div>
               </Link>
@@ -94,8 +94,8 @@ const Navbar = () => {
                       <img 
                         src="./images/logo.png" 
                         alt="Kriola Plasma Logo" 
-                        className="h-64 w-auto"
-                        style={{ maxHeight: '260px' }}
+                        className="h-32 w-auto"
+                        style={{ maxHeight: '120px' }}
                       />
                     </div>
                   </Link>
