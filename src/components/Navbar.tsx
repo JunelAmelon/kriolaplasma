@@ -30,7 +30,7 @@ const Navbar = () => {
                   <img 
                     src="./images/logo.png" 
                     alt="Kriola Plasma Logo" 
-                    className="h-20 w-auto"
+                    className="h-40 w-auto"
                   />
                 </div>
               </Link>
@@ -94,8 +94,8 @@ const Navbar = () => {
                       <img 
                         src="./images/logo.png" 
                         alt="Kriola Plasma Logo" 
-                        className="h-32 w-auto"
-                        style={{ maxHeight: '130px' }}
+                        className="h-64 w-auto"
+                        style={{ maxHeight: '260px' }}
                       />
                     </div>
                   </Link>
