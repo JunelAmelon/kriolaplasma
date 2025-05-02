@@ -8,7 +8,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold text-primary mb-4">Kriola Plasma</h3>
+            <img 
+  src="./images/logo-white.png" 
+  alt="Kriola Plasma Logo White" 
+  style={{ height: '139px', width: 'auto' }}
+  className="mb-4"
+/>
             <p className="text-gray-400">
               Expert en soins innovants par plasma froid russe pour la peau et les cheveux.
             </p>
