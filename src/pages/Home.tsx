@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check } from 'lucide-react';
+import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
@@ -15,7 +15,7 @@ const services = [
     title: "Repousse Capillaire Intense",
     description: "Redonnez vie à vos cheveux avec notre traitement exclusif qui stimule la repousse et fortifie le cuir chevelu.",
     icon: Zap,
-    price: "À partir de 210€ la séance​",
+    price: "À partir de 210€ la séance",
     duration: "55 min",
     benefits: [
       "Jusqu'à 120 nouveaux cheveux/cm²*",
@@ -153,174 +153,84 @@ const Home = () => {
   });
 
   return (
-    <div className="w-full">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-28 md:pt-40">
-        {/* Background Image with darker overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://img.freepik.com/free-photo/person-enjoying-scalp-massage-spa_23-2151454837.jpg?t=st=1744192213~exp=1744195813~hmac=6f77f8f1fe8bb8a97c58f07b2be381fe19809d0229d38db0c43a085c5563a3f9&w=996"
-            alt="Background"
-            className="w-full h-full object-cover brightness-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50 bg-black/50" />
+    <>
+
+      {/* Hero Section */}<section className="relative min-h-screen flex items-center overflow-hidden bg-gray-900">
+  {/* Image en arrière-plan avec overlay professionnel */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src="https://img.freepik.com/free-photo/person-enjoying-scalp-massage-spa_23-2151454837.jpg"
+      alt="Soin esthétique professionnel"
+      className="w-full h-full object-cover object-center"
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90" />
+  </div>
+
+  {/* Contenu principal avec grille professionnelle */}
+  <div className="relative z-10 container mx-auto px-6 py-24">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+      
+      {/* Colonne texte */}
+      <div className="max-w-2xl space-y-8">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-px bg-primary"></div>
+          <span className="text-sm font-medium text-primary/90 tracking-widest">TECHNOLOGIE BREVETÉE</span>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 py-20 lg:py-32">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex-1 text-left max-w-2xl"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm shadow-lg border border-primary/10 mb-6 font-semibold text-sm tracking-wide text-primary-dark hover:shadow-xl hover:ring-2 hover:ring-primary/20 transition-all duration-200 align-middle"
-              >
-                <Sparkles size={15} className="text-primary" />
-                <span className="text-primary">Innovation en soins esthétiques</span>
-              </motion.div>
-              
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-5xl sm:text-7xl font-serif font-extrabold mb-9 leading-tight text-primary-dark drop-shadow-md"
-              >
-                <span className="relative inline-block pb-2">
-                  <span className="z-10 relative">Révélez votre</span>
-                  <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
-                </span>
-                <span className="block mt-2 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-                  beauté naturelle
-                </span>
-              </motion.h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <span className="block">Révolution en</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">soins esthétiques</span>
+        </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-lg sm:text-xl text-gray-300 mb-10"
-              >
-                Découvrez les soins innovants par plasma froid russe pour une peau rayonnante et des résultats exceptionnels.
-              </motion.p>
+        <p className="text-lg text-gray-300 leading-relaxed">
+          Le plasma froid médical redéfinit les standards de beauté avec des résultats cliniquement prouvés, sans temps de récupération.
+        </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="flex flex-wrap gap-4"
-              >
-                <Link to="/reservation" className="group bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:shadow-[0_0_20px_rgba(185,122,86,0.3)]">
-                  Réserver maintenant
-                  <ArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link to="/services" className="group bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center transform hover:scale-105 hover:bg-white/20">
-                  Découvrir
-                  <ChevronRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
+        {/* Groupe CTA */}
+        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <Link
+            to="/reservation"
+            className="px-8 py-4 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+          >
+            Consultation gratuite
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+          <Link
+            to="/services"
+            className="px-8 py-4 bg-transparent text-white font-medium rounded-lg border-2 border-white/20 hover:border-white/40 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
+          >
+            Nos services
+          </Link>
+        </div>
+      </div>
 
-              {/* Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16"
-              >
-                {[
-                  { number: "5+", label: "Années d'expertise" },
-                  { number: "45+", label: "Clients satisfaits" },
-                  { number: "98%", label: "Taux de satisfaction" },
-                  { number: "3+", label: "Prix d'excellence" },
-                ].map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-primary">
-                      {stat.number}
-                    </div>
-                    <div className="text-sm text-gray-300 mt-1">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Right Content - Floating Cards */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="flex-1 relative w-full max-w-md"
-            >
-              <div className="relative">
-                {/* Main Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 mx-auto max-w-[280px] sm:max-w-full"
-                >
-                  <div className="relative h-40 bg-gradient-to-r from-primary to-primary-dark flex items-center justify-center">
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow flex items-center gap-1">
-                      <Star size={14} className="text-primary fill-primary" />
-                      <span className="text-sm font-medium">4.9</span>
-                    </div>
-                    <div className="text-center text-white px-4">
-                      <h3 className="text-xl font-semibold">Soins Innovants</h3>
-                    </div>
-                  </div>
-
-                  <div className="p-6 bg-white">
-                    <p className="text-gray-600 text-sm mb-4">
-                      Technologie plasma froid de dernière génération
-                    </p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2 text-gray-600">
-                        <Sun size={16} className="text-primary" />
-                        <span className="text-sm">Effet rajeunissant immédiat</span>
-                      </li>
-                      <li className="flex items-center gap-2 text-gray-600">
-                        <Sun size={16} className="text-primary" />
-                        <span className="text-sm">Sans douleur</span>
-                      </li>
-                    </ul>
-                    <button className="w-full mt-4 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
-                      Réserver
-                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </motion.div>
-
-                {/* Floating Elements */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                  className="absolute -left-4 sm:-left-8 top-1/4 bg-white p-3 sm:p-4 rounded-xl shadow-xl scale-75 sm:scale-100"
-                >
-                  <Shield className="text-primary mb-2" size={20} />
-                  <p className="text-xs sm:text-sm font-medium">Résultats Garantis</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  className="absolute -right-4 sm:-right-8 top-1/2 bg-white p-3 sm:p-4 rounded-xl shadow-xl scale-75 sm:scale-100"
-                >
-                  <Award className="text-primary mb-2" size={20} />
-                  <p className="text-xs sm:text-sm font-medium">Expert Certifié</p>
-                </motion.div>
-
-               
-              </div>
-            </motion.div>
+      {/* Colonne visuelle avec carte de preuve sociale */}
+      <div className="relative h-full min-h-[400px] flex items-center justify-center">
+        {/* Élément décoratif */}
+        <div className="absolute -right-20 top-1/2 transform -translate-y-1/2 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
+        
+        {/* Carte flottante avec preuve sociale */}
+        <div className="relative bg-white/90 backdrop-blur-md p-8 rounded-xl shadow-2xl max-w-xs mx-auto lg:mx-0 lg:ml-auto">
+          <div className="flex items-baseline gap-2">
+            <span className="text-3xl font-bold text-primary">4.9/5</span>
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+              ))}
+            </div>
+          </div>
+          <p className="text-sm text-gray-600 mt-2">Avis clients vérifiés</p>
+          <div className="w-full bg-gray-200 rounded-full h-2 mt-4">
+            <div className="bg-primary h-2 rounded-full" style={{width: '96%'}}></div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+
+  {/* Élément décoratif subtil */}
+  <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64 h-64 rounded-full bg-primary/10 blur-3xl z-0"></div>
+</section>
 
       {/* About Section */}
       <section className="py-32 bg-gradient-to-br from-white via-primary/5 to-white">
@@ -392,7 +302,10 @@ const Home = () => {
               animate={aboutInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-primary font-semibold">À PROPOS DE NOUS</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle">
+  <Award className="text-[#b97a56]" size={15} />
+  <span className="text-[#b97a56]">À propos de nous</span>
+</span>
               <h2 className="text-4xl font-serif font-extrabold mt-4 mb-6 text-primary-dark">
                 Kriola Plasma, 
                 <span className="block">la référence en soin au Plasma Froid</span>
@@ -461,7 +374,7 @@ const Home = () => {
   <Award className="text-primary" size={15} />
   <span className="text-primary">Nos services spécialisés</span>
 </span>
-            <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-9 text-primary-dark drop-shadow-md">
+            <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-9 drop-shadow-md" style={{ color: '#b97a56' }}>
               <span className="relative inline-block pb-2">
                 <span className="z-10 relative">Notre expertise, votre transformation</span>
                 <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
@@ -565,187 +478,181 @@ const Home = () => {
 
       {/* Web App Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 to-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={servicesInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle">
-  <Smartphone className="text-primary" size={15} />
-  <span className="text-primary">Application mobile & web</span>
-</span>
-              <h2 className="text-4xl font-serif font-extrabold mt-4 mb-6 text-primary-dark">
-                Gérez vos soins depuis votre
-                <span className="block">smartphone</span> ou votre
-                <span className="block">navigateur</span>
-              </h2>
-              <p className="text-gray-600 mb-4">
-                Suivez vos traitements, prenez rendez-vous et accédez à votre programme personnalisé directement depuis notre application mobile <b>ou via notre version web accessible partout</b> !
-              </p>
-              <a
-                href="https://app.kriolaplasma.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2 mb-4 rounded-full bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors text-sm"
-              >
-                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 17h8"/><path d="M12 13v4"/></svg>
-                Accéder à la version web
-              </a>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="flex flex-wrap justify-center gap-6 mt-8"
-              >
-                {/* Bouton App Store */}
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
-                    <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
-                      <img
-                        src="https://cdn-icons-png.freepik.com/256/5977/5977575.png"
-                        alt="App Store"
-                        className="h-8 w-8"
-                      />
-                    </div>
-                    <span className="text-sm font-semibold text-gray-700">Download on the</span>
-                    <span className="text-lg font-bold text-gray-900">App Store</span>
-                  </div>
-                </a>
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={servicesInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8 }}
+      >
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle">
+          <Smartphone className="text-primary" size={15} />
+          <span className="text-primary">Application mobile & web</span>
+        </span>
+        <h2 className="text-4xl font-serif font-extrabold mt-4 mb-6 text-primary-dark">
+          Gérez vos soins depuis votre
+          <span className="block">smartphone</span> ou votre
+          <span className="block">navigateur</span>
+        </h2>
+        <p className="text-gray-600 mb-4">
+          Suivez vos traitements, prenez rendez-vous et accédez à votre programme personnalisé directement depuis notre application mobile <b>ou via notre version web accessible partout</b> !
+        </p>
+        <a
+          href="https://app.kriolaplasma.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2 mb-4 rounded-full bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors text-sm"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 17h8"/><path d="M12 13v4"/></svg>
+          Accéder à la version web
+        </a>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="flex flex-wrap justify-center gap-6 mt-8"
+        >
+          {/* Bouton App Store */}
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
+              <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
+                <img
+                  src="https://cdn-icons-png.freepik.com/256/5977/5977575.png"
+                  alt="App Store"
+                  className="h-8 w-8"
+                />
+              </div>
+              <span className="text-sm font-semibold text-gray-700">Download on the</span>
+              <span className="text-lg font-bold text-gray-900">App Store</span>
+            </div>
+          </a>
+          {/* Bouton Google Play */}
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
+              <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
+                <img
+                  src="https://cdn-icons-png.freepik.com/256/732/732208.png"
+                  alt="Google Play"
+                  className="h-8 w-8"
+                />
+              </div>
+              <span className="text-sm font-semibold text-gray-700">Get it on</span>
+              <span className="text-lg font-bold text-gray-900">Google Play</span>
+            </div>
+          </a>
+        </motion.div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={servicesInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="relative"
+      >
+        <div className="relative mx-auto w-[280px] h-[580px] bg-gray-900 rounded-[3rem] border-[14px] border-gray-800 shadow-xl">
+          <div className="absolute top-0 w-[148px] h-[18px] bg-gray-800 rounded-b-2xl left-1/2 -translate-x-1/2" />
+          <div className="h-full w-full rounded-[2.3rem] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80"
+              alt="Dashboard Kriola Plasma"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
-                {/* Bouton Google Play */}
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
-                    <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
-                      <img
-                        src="https://cdn-icons-png.freepik.com/256/732/732208.png"
-                        alt="Google Play"
-                        className="h-8 w-8"
-                      />
-                    </div>
-                    <span className="text-sm font-semibold text-gray-700">Get it on</span>
-                    <span className="text-lg font-bold text-gray-900">Google Play</span>
-                  </div>
-                </a>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={servicesInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="relative mx-auto w-[280px] h-[580px] bg-gray-900 rounded-[3rem] border-[14px] border-gray-800 shadow-xl">
-                <div className="absolute top-0 w-[148px] h-[18px] bg-gray-800 rounded-b-2xl left-1/2 -translate-x-1/2" />
-                <div className="h-full w-full rounded-[2.3rem] overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80"
-                    alt="Dashboard Kriola Plasma"
-                    className="w-full h-full object-cover"
-                  />
+{/* Boutique Preview Section */}
+<section className="py-20 bg-gradient-to-br from-white via-gray-50 to-primary/10">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-14">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle"
+        style={{ display: 'inline-flex' }}
+      >
+        <ShoppingBag size={15} className="text-primary" />
+        <span className="text-primary">Boutique exclusive</span>
+      </motion.div>
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.7 }}
+        className="text-4xl md:text-6xl font-serif font-extrabold mb-6 text-primary-dark drop-shadow-md"
+      >
+        <span className="relative inline-block pb-2">
+          <span className="z-10 relative">Produits professionnels</span>
+          <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
+        </span>
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="text-gray-700 max-w-xl mx-auto text-base font-medium"
+      >
+        Sélection premium de soins experts pour sublimer votre routine beauté.
+      </motion.p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {products.map((product: {
+          id: number;
+          name: string;
+          price: string;
+          rating: number;
+          image: string;
+          description: string;
+        }, index: number) => (
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
+            className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div className="relative aspect-square overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Link to="/reservation" className="absolute bottom-4 left-4 right-4 bg-white text-gray-900 py-2 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
+                Commander
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+              <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+              <div className="flex items-center justify-between">
+                <span className="text-primary font-bold">{product.price}</span>
+                <div className="flex items-center gap-1">
+                  <Star size={16} className="text-primary fill-primary" />
+                  <span className="text-sm text-gray-600">{product.rating}</span>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Boutique Preview Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-primary/10">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle"
-              style={{ display: 'inline-flex' }}
-            >
-              <ShoppingBag size={15} className="text-primary" />
-              <span className="text-primary">Boutique exclusive</span>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="text-4xl md:text-6xl font-serif font-extrabold mb-6 text-primary-dark drop-shadow-md"
-            >
-              <span className="relative inline-block pb-2">
-                <span className="z-10 relative">Produits professionnels</span>
-                <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
-              </span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-gray-700 max-w-xl mx-auto text-base font-medium"
-            >
-              Sélection premium de soins experts pour sublimer votre routine beauté.
-            </motion.p>
-          </div>
-     
-
-          
-
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.map((product: {
-              id: number;
-              name: string;
-              price: string;
-              rating: number;
-              image: string;
-              description: string;
-            }, index: number) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <Link to="/reservation" className="absolute bottom-4 left-4 right-4 bg-white text-gray-900 py-2 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-                    Commander
-                    <ArrowRight size={16} />
-                  </Link>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-primary font-bold">{product.price}</span>
-                    <div className="flex items-center gap-1">
-                      <Star size={16} className="text-primary fill-primary" />
-                      <span className="text-sm text-gray-600">{product.rating}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
+  </div>
+</section>
+
+    </>
   );
 };
 

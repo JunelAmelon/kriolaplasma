@@ -9,9 +9,21 @@ const Preloader: React.FC = () => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);
+    // Safety timeout in case of bug
+    const hardTimeout = setTimeout(() => {
+      setLoading(false);
+      console.log('Preloader forced to close after 3.5s');
+    }, 3500);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hardTimeout);
+    };
   }, []);
+
+  if (!loading) {
+    console.log('Preloader hidden, app should display.');
+  }
 
   return (
     <AnimatePresence>
