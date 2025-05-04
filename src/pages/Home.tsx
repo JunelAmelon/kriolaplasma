@@ -179,11 +179,11 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm mb-8"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-md border border-primary/20 mb-8"
               >
-                <Sparkles size={16} className="text-primary" />
-                <span className="text-sm font-medium text-white">
-                  Innovation en Soins Esthétiques
+                <Sparkles size={18} className="text-primary" />
+                <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent font-bold text-base uppercase tracking-wider">
+                  Innovation en soins esthétiques
                 </span>
               </motion.div>
               
@@ -459,7 +459,10 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <span className="text-primary font-semibold">NOS SERVICES SPÉCIALISÉS</span>
+            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-md border border-primary/20 mb-5 font-bold text-base uppercase tracking-wider">
+  <Award className="text-primary" size={18} />
+  <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent font-bold">Nos services spécialisés</span>
+</span>
             <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-7 bg-gradient-to-r from-primary-dark via-primary to-primary-light bg-clip-text text-transparent drop-shadow-lg">
   <span className="relative inline-block pb-2">
     <span className="z-10 relative">Notre expertise, votre transformation</span>
@@ -661,35 +664,38 @@ const Home = () => {
       <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-primary/10">
   <div className="container mx-auto px-4">
     <div className="text-center mb-14">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-primary via-primary-dark to-primary-light shadow-xl mb-6 animate-pulse"
-      >
-        <ShoppingBag size={20} className="text-white mr-2 inline-block align-middle" />
-        <span className="text-base font-semibold text-white tracking-wider uppercase">Notre Boutique</span>
-      </motion.div>
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="text-4xl md:text-6xl font-serif font-extrabold mb-4 bg-gradient-to-r from-gray-900 via-primary-dark to-gray-700 bg-clip-text text-transparent drop-shadow-lg"
-      >
-        <span className="relative inline-block pb-2">
-          <span className="z-10 relative">Produits professionnels</span>
-          <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
-        </span>
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.7 }}
-        className="text-gray-700 max-w-2xl mx-auto text-lg font-medium"
-      >
-        Découvrez une sélection de soins experts et de cosmétiques haut de gamme pour sublimer votre routine beauté à la maison.
-      </motion.p>
-    </div>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white shadow-lg mb-8 border border-primary/20"
+    style={{ display: 'inline-flex' }}
+  >
+    <ShoppingBag size={20} className="text-primary drop-shadow-sm" />
+    <span className="text-lg font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent tracking-wide uppercase">
+      Boutique exclusive
+    </span>
+  </motion.div>
+  <motion.h2
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.7 }}
+    className="text-4xl md:text-6xl font-serif font-extrabold mb-3 bg-gradient-to-r from-gray-900 via-primary-dark to-gray-700 bg-clip-text text-transparent drop-shadow-lg"
+  >
+    <span className="relative inline-block pb-2">
+      <span className="z-10 relative">Produits professionnels</span>
+      <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
+    </span>
+  </motion.h2>
+  <motion.p
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3, duration: 0.6 }}
+    className="text-gray-700 max-w-xl mx-auto text-base font-medium"
+  >
+    Sélection premium de soins experts pour sublimer votre routine beauté.
+  </motion.p>
+</div>
           <div className="text-center mb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
