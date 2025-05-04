@@ -9,7 +9,7 @@ export default {
         'primary-dark': '#8c5b40',
       },
       fontFamily: {
-        sans: ['"Oration DEMO"', '"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',

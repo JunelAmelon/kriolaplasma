@@ -233,342 +233,335 @@ const Home = () => {
 </section>
 
       {/* About Section */}
-      <section className="py-32 bg-gradient-to-br from-white via-primary/5 to-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              ref={aboutRef}
-              initial={{ opacity: 0, x: -50 }}
-              animate={aboutInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="rounded-2xl overflow-hidden shadow-xl">
-                    <img
-                      src="https://img.freepik.com/free-photo/african-girl-woman-couch-lady-beautician_1157-48226.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740"
-                      alt="Notre équipe"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden shadow-xl">
-                    <img
-                      src="https://img.freepik.com/free-photo/beautiful-female-wearing-pink-gloves-showing-filled-syringe-camera-close-up-portrait_7502-10384.jpg?t=st=1744139915~exp=1744143515~hmac=c1da04024bdb2e41094634440eca774c7872bcb3edb82432f36fc5b8edc8ae0c&w=740"
-                      alt="Nos équipements"
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-4 mt-8">
-                  <div className="rounded-2xl overflow-hidden shadow-xl">
-                    <img
-                      src="https://img.freepik.com/free-photo/beautiful-girl-standing-studio-with-cream_1157-29014.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740"
-                      alt="Nos soins"
-                      className="w-full h-64 object-cover"
-                    />
-                  </div>
-                  <div className="rounded-2xl overflow-hidden shadow-xl">
-                    <img
-                      src="https://img.freepik.com/free-photo/portrait-young-beautiful-woman-with-moisturizing-cream_23-2150331756.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740"
-                      alt="Notre institut"
-                      className="w-full h-48 object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Achievement Card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={aboutInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-gray-900">Centre Certifié</div>
-                    <div className="text-xs text-gray-600">Expert en Plasma Froid</div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={aboutInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle">
-  <Award className="text-[#b97a56]" size={15} />
-  <span className="text-[#b97a56]">À propos de nous</span>
-</span>
-              <h2 className="text-4xl font-serif font-extrabold mt-4 mb-6 text-primary-dark">
-                Kriola Plasma, 
-                <span className="block">la référence en soin au Plasma Froid</span>
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Votre peau mérite le meilleur. Et si la réponse était dans le froid ?
-                <br></br>
-                Chez Kriola Plasma, nous ne vous vendons pas un produit, mais une révélation : celle d'une peau enfin libérée, transcendée, radicalement transformée.
-                <br></br> 
-                Pas de promesses en l'air, juste des preuves. Parce que votre peau n'a pas besoin de rêves… mais de résultats.
-              </p>
-
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                {[
-                  { number: "5+", label: "Années d'expérience" },
-                  { number: "45+", label: "Clients satisfaits" },
-                  { number: "98%", label: "Taux de satisfaction" },
-                  { number: "3+", label: "Centres en France" }
-                ].map((stat, index) => (
-                  <div key={index} className="bg-white p-4 rounded-xl shadow-lg">
-                    <div className="text-2xl font-bold text-primary">{stat.number}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="space-y-4 mb-8">
-                {[
-                  "Technologie de pointe certifiée",
-                  "Équipe d'experts qualifiés",
-                  "Protocoles sur mesure",
-                  "Suivi personnalisé"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Check size={14} className="text-primary" />
-                    </div>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                to="/services"
-                className="group bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 text-sm shadow-md hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary/70"
-                style={{ width: 'fit-content', minWidth: '0' }}
-              >
-                <ChevronRight size={18} className="-ml-1" />
-                En savoir plus
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section ref={servicesRef} className="py-32 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle">
-  <Award className="text-primary" size={15} />
-  <span className="text-primary">Nos services spécialisés</span>
-</span>
-            <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-9 drop-shadow-md" style={{ color: '#b97a56' }}>
-              <span className="relative inline-block pb-2">
-                <span className="z-10 relative">Notre expertise, votre transformation</span>
-                <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
-              </span>
-            </h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Découvrez nos traitements innovants qui ont déjà transformé la vie de nombreux clients satisfaits.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <Swiper
-              effect="coverflow"
-              grabCursor={true}
-              centeredSlides={true}
-              slidesPerView={1}
-              spaceBetween={32}
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              coverflowEffect={{
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 2.5,
-                slideShadows: false,
-              }}
-              breakpoints={{
-                640: {
-                  slidesPerView: 1.4,
-                },
-                768: {
-                  slidesPerView: 2.2,
-                },
-                1024: {
-                  slidesPerView: 2.8,
-                },
-                1280: {
-                  slidesPerView: 3.2,
-                },
-              }}
-              modules={[Autoplay, EffectCoverflow]}
-              className="py-10 px-4 sm:px-10"
-            >
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <SwiperSlide key={index}>
-                    <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                      <div className="relative h-80 sm:h-96">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
-                          <Star size={14} className="text-primary fill-primary" />
-                          <span className="text-sm font-medium">{service.rating}</span>
-                        </div>
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <div className="flex items-center gap-2 text-white mb-2">
-                            {Icon && <Icon size={20} className="text-primary" />}
-                            <h3 className="text-xl font-semibold">{service.title}</h3>
-                          </div>
-                          <p className="text-white/80 text-sm">{service.description}</p>
-                        </div>
-                      </div>
-                      <div className="p-6">
-                        <div className="flex justify-between items-center mb-4">
-                          <span className="text-primary font-semibold">{service.price}</span>
-                          <span className="text-gray-600 text-sm">{service.duration}</span>
-                        </div>
-                        <ul className="space-y-2">
-                          {service.benefits.map((benefit, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-gray-600">
-                              <Sun size={16} className="text-primary" />
-                              <span className="text-sm">{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <Link to="/reservation" className="w-full mt-6 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
-                          Réserver
-                          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Web App Section */}
-      <section className="py-32 bg-gradient-to-br from-primary/5 to-white">
-  <div className="container mx-auto px-4">
-    <div className="grid md:grid-cols-2 gap-12 items-center">
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={servicesInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.8 }}
-      >
-        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle">
-          <Smartphone className="text-primary" size={15} />
-          <span className="text-primary">Application mobile & web</span>
-        </span>
-        <h2 className="text-4xl font-serif font-extrabold mt-4 mb-6 text-primary-dark">
-          Gérez vos soins depuis votre
-          <span className="block">smartphone</span> ou votre
-          <span className="block">navigateur</span>
-        </h2>
-        <p className="text-gray-600 mb-4">
-          Suivez vos traitements, prenez rendez-vous et accédez à votre programme personnalisé directement depuis notre application mobile <b>ou via notre version web accessible partout</b> !
-        </p>
-        <a
-          href="https://app.kriolaplasma.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2 mb-4 rounded-full bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors text-sm"
-        >
-          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 17h8"/><path d="M12 13v4"/></svg>
-          Accéder à la version web
-        </a>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-6 mt-8"
-        >
-          {/* Bouton App Store */}
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group"
-          >
-            <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
-              <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
-                <img
-                  src="https://cdn-icons-png.freepik.com/256/5977/5977575.png"
-                  alt="App Store"
-                  className="h-8 w-8"
-                />
-              </div>
-              <span className="text-sm font-semibold text-gray-700">Download on the</span>
-              <span className="text-lg font-bold text-gray-900">App Store</span>
-            </div>
-          </a>
-          {/* Bouton Google Play */}
-          <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group"
-          >
-            <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
-              <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
-                <img
-                  src="https://cdn-icons-png.freepik.com/256/732/732208.png"
-                  alt="Google Play"
-                  className="h-8 w-8"
-                />
-              </div>
-              <span className="text-sm font-semibold text-gray-700">Get it on</span>
-              <span className="text-lg font-bold text-gray-900">Google Play</span>
-            </div>
-          </a>
-        </motion.div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={servicesInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.8 }}
-        className="relative"
-      >
-        <div className="relative mx-auto w-[280px] h-[580px] bg-gray-900 rounded-[3rem] border-[14px] border-gray-800 shadow-xl">
-          <div className="absolute top-0 w-[148px] h-[18px] bg-gray-800 rounded-b-2xl left-1/2 -translate-x-1/2" />
-          <div className="h-full w-full rounded-[2.3rem] overflow-hidden">
+      <section className="py-24 bg-white">
+  <div className="container mx-auto px-6">
+    <div className="flex flex-col lg:flex-row gap-16 items-center">
+      {/* Galerie d'images modernisée */}
+      <div className="flex-1 grid grid-cols-2 gap-4">
+        <div className="space-y-4">
+          <div className="rounded-2xl overflow-hidden aspect-square">
             <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80"
-              alt="Dashboard Kriola Plasma"
-              className="w-full h-full object-cover"
+              src="https://img.freepik.com/free-photo/african-girl-woman-couch-lady-beautician_1157-48226.jpg"
+              alt="Notre équipe"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+            <img
+              src="https://img.freepik.com/free-photo/beautiful-female-wearing-pink-gloves-showing-filled-syringe-camera-close-up-portrait_7502-10384.jpg"
+              alt="Nos équipements"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>
-      </motion.div>
+        <div className="space-y-4 mt-12">
+          <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+            <img
+              src="https://img.freepik.com/free-photo/beautiful-girl-standing-studio-with-cream_1157-29014.jpg"
+              alt="Nos soins"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div className="rounded-2xl overflow-hidden aspect-square relative">
+            <img
+              src="https://img.freepik.com/free-photo/portrait-young-beautiful-woman-with-moisturizing-cream_23-2150331756.jpg"
+              alt="Notre institut"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+            {/* Badge flottant moderne */}
+            <div className="absolute -bottom-4 -right-4 bg-white p-5 rounded-xl shadow-lg border border-gray-100">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Award className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Centre Certifié</div>
+                  <div className="text-xs text-gray-500">Expert en Plasma</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Contenu texte */}
+      <div className="flex-1 max-w-2xl">
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-primary/10 rounded-full">
+          <Award className="h-5 w-5 text-primary" />
+          <span className="text-sm font-medium text-primary">À PROPOS DE NOUS</span>
+        </div>
+
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          Kriola Plasma,
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+            Excellence en soins
+          </span>
+        </h2>
+
+        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          Votre peau mérite une approche révolutionnaire. Le plasma froid médical offre des résultats cliniquement prouvés pour une transformation visible sans intervention invasive.
+        </p>
+
+        {/* Statistiques modernes */}
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          {[
+            { number: "5+", label: "Ans d'expertise" },
+            { number: "450+", label: "Clients satisfaits" },
+            { number: "98%", label: "Satisfaction" },
+            { number: "3", label: "Centres en France" }
+          ].map((stat, index) => (
+            <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+              <div className="text-2xl font-bold text-primary">{stat.number}</div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <ul className="space-y-3 mb-8">
+          {[
+            "Technologie certifiée CE",
+            "Équipe d'experts diplômés",
+            "Protocoles personnalisés",
+            "Suivi post-traitement"
+          ].map((item, index) => (
+            <li key={index} className="flex items-center gap-3">
+              <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                <Check className="w-4 h-4 text-primary" />
+              </div>
+              <span className="text-gray-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          to="/services"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-300"
+        >
+          Découvrir nos services
+          <ChevronRight className="h-5 w-5" />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* Services Section */}
+      <section ref={servicesRef} className="py-32 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      {/* Nouveau design pour le titre seulement */}
+      <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-primary/10 rounded-full border border-primary/20 mx-auto">
+        <Sparkles className="h-5 w-5 text-primary" />
+        <span className="text-sm font-medium text-primary uppercase tracking-wider">
+          Nos services spécialisés
+        </span>
+      </div>
+      
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <span className="block">Notre expertise,</span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+          votre transformation
+        </span>
+      </h2>
+      
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Découvrez nos traitements innovants qui ont déjà transformé la vie de nombreux clients satisfaits.
+      </p>
+    </div>
+
+    {/* Conservation exacte du système de cartes existant */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: 0.4, duration: 0.6 }}
+    >
+      <Swiper
+        effect="coverflow"
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={1}
+        spaceBetween={32}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+          slideShadows: false,
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 1.4,
+          },
+          768: {
+            slidesPerView: 2.2,
+          },
+          1024: {
+            slidesPerView: 2.8,
+          },
+          1280: {
+            slidesPerView: 3.2,
+          },
+        }}
+        modules={[Autoplay, EffectCoverflow]}
+        className="py-10 px-4 sm:px-10"
+      >
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <SwiperSlide key={index}>
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                <div className="relative h-80 sm:h-96">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+                    <Star size={14} className="text-primary fill-primary" />
+                    <span className="text-sm font-medium">{service.rating}</span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center gap-2 text-white mb-2">
+                      {Icon && <Icon size={20} className="text-primary" />}
+                      <h3 className="text-xl font-semibold">{service.title}</h3>
+                    </div>
+                    <p className="text-white/80 text-sm">{service.description}</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-primary font-semibold">{service.price}</span>
+                    <span className="text-gray-600 text-sm">{service.duration}</span>
+                  </div>
+                  <ul className="space-y-2">
+                    {service.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-gray-600">
+                        <Sun size={16} className="text-primary" />
+                        <span className="text-sm">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/reservation" className="w-full mt-6 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 group">
+                    Réserver
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </motion.div>
+  </div>
+</section>
+
+      {/* Web App Section */}
+      <section className="py-24 bg-white">
+  <div className="container mx-auto px-6">
+    <div className="flex flex-col lg:flex-row gap-16 items-center">
+      {/* Partie texte - Gauche */}
+      <div className="flex-1 max-w-2xl">
+        <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-primary/10 rounded-full border border-primary/20">
+          <Smartphone className="h-5 w-5 text-primary" />
+          <span className="text-sm font-medium text-primary">APPLICATION MOBILE & WEB</span>
+        </div>
+
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          Votre programme de soins,
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+            accessible partout
+          </span>
+        </h2>
+
+        <p className="text-lg text-gray-600 mb-8">
+          Gérez vos rendez-vous, suivez votre progression et accédez à votre programme personnalisé depuis notre application mobile ou directement via votre navigateur.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <a
+            href="https://app.kriolaplasma.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-4 bg-gray-900 hover:bg-primary text-white font-medium rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M8 17h8"/>
+              <path d="M12 13v4"/>
+            </svg>
+            Accéder à la version web
+          </a>
+        </div>
+
+        {/* Boutons stores */}
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 min-w-[160px]"
+          >
+            <div className="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl p-3 transition-all duration-300 flex items-center gap-3">
+              <img 
+                src="https://cdn-icons-png.flaticon.com/512/5968/5968566.png" 
+                alt="Google Play" 
+                className="h-8 w-8"
+              />
+              <div className="text-left">
+                <div className="text-xs text-gray-500">Disponible sur</div>
+                <div className="font-semibold text-gray-900">Google Play</div>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 min-w-[160px]"
+          >
+            <div className="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl p-3 transition-all duration-300 flex items-center gap-3">
+              <img 
+                src="https://cdn-icons-png.flaticon.com/512/179/179309.png" 
+                alt="App Store" 
+                className="h-8 w-8"
+              />
+              <div className="text-left">
+                <div className="text-xs text-gray-500">Télécharger sur</div>
+                <div className="font-semibold text-gray-900">App Store</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {/* Partie visuelle - Droite */}
+      <div className="flex-1 relative w-full max-w-xl">
+        {/* Mockup mobile moderne */}
+        <div className="relative mx-auto w-[280px] h-[580px] bg-gray-900 rounded-[40px] p-1 shadow-2xl">
+          {/* Encoche */}
+          <div className="absolute top-0 w-[120px] h-[24px] bg-gray-900 rounded-b-xl left-1/2 -translate-x-1/2 z-10" />
+          
+          {/* Écran */}
+          <div className="relative h-full w-full rounded-[36px] overflow-hidden border-[12px] border-gray-900">
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+              alt="Application Kriola Plasma"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-gray-900/20 to-transparent" />
+          </div>
+        </div>
+
+        {/* Éléments décoratifs */}
+        <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-primary/10 blur-3xl -z-10" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-primary/5 blur-3xl -z-10" />
+      </div>
     </div>
   </div>
 </section>
@@ -577,77 +570,78 @@ const Home = () => {
 <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-primary/10">
   <div className="container mx-auto px-4">
     <div className="text-center mb-14">
+      {/* Nouveau design pour le badge */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow border border-primary/10 mb-4 font-semibold text-xs uppercase tracking-wider align-middle"
-        style={{ display: 'inline-flex' }}
+        className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-primary/10 rounded-full border border-primary/20 mx-auto"
       >
-        <ShoppingBag size={15} className="text-primary" />
-        <span className="text-primary">Boutique exclusive</span>
+        <ShoppingBag className="h-5 w-5 text-primary" />
+        <span className="text-sm font-medium text-primary uppercase tracking-wider">
+          Boutique exclusive
+        </span>
       </motion.div>
+
+      {/* Nouveau design pour le titre principal */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.7 }}
-        className="text-4xl md:text-6xl font-serif font-extrabold mb-6 text-primary-dark drop-shadow-md"
+        className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
       >
-        <span className="relative inline-block pb-2">
-          <span className="z-10 relative">Produits professionnels</span>
-          <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
+        <span className="block">Nos produits</span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+          professionnels
         </span>
       </motion.h2>
+
+      {/* Sous-titre conservé avec légères améliorations */}
       <motion.p
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="text-gray-700 max-w-xl mx-auto text-base font-medium"
+        className="text-gray-600 max-w-xl mx-auto text-lg"
       >
         Sélection premium de soins experts pour sublimer votre routine beauté.
       </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {products.map((product: {
-          id: number;
-          name: string;
-          price: string;
-          rating: number;
-          image: string;
-          description: string;
-        }, index: number) => (
-          <motion.div
-            key={product.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-            className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <div className="relative aspect-square overflow-hidden">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Link to="/reservation" className="absolute bottom-4 left-4 right-4 bg-white text-gray-900 py-2 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-                Commander
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-primary font-bold">{product.price}</span>
-                <div className="flex items-center gap-1">
-                  <Star size={16} className="text-primary fill-primary" />
-                  <span className="text-sm text-gray-600">{product.rating}</span>
-                </div>
+    </div>
+
+    {/* Grille de produits inchangée */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {products.map((product, index) => (
+        <motion.div
+          key={product.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
+          className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <div className="relative aspect-square overflow-hidden">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <Link to="/reservation" className="absolute bottom-4 left-4 right-4 bg-white text-gray-900 py-2 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
+              Commander
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="p-6">
+            <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+            <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+            <div className="flex items-center justify-between">
+              <span className="text-primary font-bold">{product.price}</span>
+              <div className="flex items-center gap-1">
+                <Star size={16} className="text-primary fill-primary" />
+                <span className="text-sm text-gray-600">{product.rating}</span>
               </div>
             </div>
-          </motion.div>
-        ))}
-      </div>
+          </div>
+        </motion.div>
+      ))}
     </div>
   </div>
 </section>
