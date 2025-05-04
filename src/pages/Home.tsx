@@ -359,8 +359,8 @@ const Home = () => {
             >
               <span className="text-primary font-semibold">À PROPOS DE NOUS</span>
               <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
-                Kriola Plasma, la Référence en
-                <span className="text-primary"> Soin au Plasma Froid</span>
+                Kriola Plasma, la référence en  soin au
+                <span className="text-primary">Plasma Froid</span>
               </h2>
               <p className="text-gray-600 mb-8">
                 Votre peau mérite le meilleur. Et si la réponse était dans le froid ?
@@ -424,7 +424,7 @@ const Home = () => {
           >
             <span className="text-primary font-semibold">NOS SERVICES SPÉCIALISÉS</span>
             <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
-              Transformations Remarquables
+              Transformations remarquables
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Découvrez nos traitements innovants qui ont déjà transformé la vie de nombreux clients satisfaits.
@@ -533,8 +533,8 @@ const Home = () => {
             >
               <span className="text-primary font-semibold">APPLICATION MOBILE & WEB</span>
 <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
-  Gérez vos Soins depuis
-  <span className="text-primary block">Votre Smartphone ou votre Navigateur</span>
+  Gérez vos soins depuis votre
+  <span className="text-primary block"> smartphone</span> ou <span className="text-primary block">votre navigateur</span>
 </h2>
 <p className="text-gray-600 mb-4">
   Suivez vos traitements, prenez rendez-vous et accédez à votre programme personnalisé directement depuis notre application mobile <b>ou via notre version web accessible partout</b> !
