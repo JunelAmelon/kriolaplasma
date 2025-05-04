@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
 // Snap and TikTok are not in lucide-react, so we use SVG for them below.
@@ -10,11 +10,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <img 
-  src="/images/logowhite.png" 
-  alt="Kriola Plasma Logo White" 
-  style={{ height: '139px', width: 'auto' }}
-  className="mb-4"
-/>
+              src="/images/logowhite.png" 
+              alt="Kriola Plasma Logo White" 
+              className="h-32 mb-4"
+            />
             <p className="text-gray-400">
               Expert en soins innovants par plasma froid russe pour la peau et les cheveux.
             </p>
@@ -68,6 +67,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary transition-colors"
+                title="Facebook"
               >
                 <Facebook size={24} />
               </a>
@@ -76,6 +76,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary transition-colors"
+                title="Instagram"
               >
                 <Instagram size={24} />
               </a>
@@ -84,7 +85,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary transition-colors"
-                aria-label="Snapchat"
+                title="Snapchat"
               >
                 {/* Snap SVG */}
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="snapchat-icon">
@@ -96,7 +97,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary transition-colors"
-                aria-label="TikTok"
+                title="TikTok"
               >
                 {/* TikTok SVG */}
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="tiktok-icon">

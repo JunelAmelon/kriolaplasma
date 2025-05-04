@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import './navbar.css';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -30,8 +31,7 @@ const Navbar = () => {
                   <img 
                     src="./images/logo.png" 
                     alt="Kriola Plasma Logo" 
-                    style={{ height: '139px', width: 'auto' }}
-                  />
+                    className="navbar-logo" />
                 </div>
               </Link>
             </div>
@@ -91,11 +91,7 @@ const Navbar = () => {
                   <Link to="/" className="flex items-center gap-2">
                     {/* Replace with your actual logo image */}
                     <div className="relative flex items-center justify-center overflow-visible">
-                      <img 
-                        src="./images/logo.png" 
-                        alt="Kriola Plasma Logo" 
-                        style={{ height: '218px', width: 'auto', maxHeight: '218px' }}
-                      />
+                      <img src="./images/logo.png" alt="Kriola Plasma Logo" className="navbar-logo-large" />
                     </div>
                   </Link>
                   <StylishCloseIcon onClick={() => setIsOpen(false)} />

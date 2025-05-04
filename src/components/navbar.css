@@ -1,0 +1,10 @@
+.navbar-logo {
+  height: 139px;
+  width: auto;
+}
+
+.navbar-logo-large {
+  height: 218px;
+  width: auto;
+  max-height: 218px;
+}
