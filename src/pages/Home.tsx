@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check, Package, Truck } from 'lucide-react';
+import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
@@ -191,10 +191,11 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+                className="text-5xl sm:text-7xl font-serif font-extrabold mb-7 leading-tight bg-gradient-to-r from-primary-dark via-primary to-primary-light bg-clip-text text-transparent drop-shadow-lg"
               >
-                <span className="text-white">
-                  Révélez votre
+                <span className="relative inline-block pb-2">
+                  <span className="z-10 relative">Révélez votre</span>
+                  <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
                 </span>
                 <span className="block mt-2 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                   beauté naturelle
@@ -459,9 +460,12 @@ const Home = () => {
             className="text-center mb-16"
           >
             <span className="text-primary font-semibold">NOS SERVICES SPÉCIALISÉS</span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
-              Transformations remarquables
-            </h2>
+            <h1 className="text-4xl md:text-5xl font-serif font-extrabold mb-7 bg-gradient-to-r from-primary-dark via-primary to-primary-light bg-clip-text text-transparent drop-shadow-lg">
+  <span className="relative inline-block pb-2">
+    <span className="z-10 relative">Notre expertise, votre transformation</span>
+    <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
+  </span>
+</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Découvrez nos traitements innovants qui ont déjà transformé la vie de nombreux clients satisfaits.
             </p>
@@ -654,8 +658,38 @@ const Home = () => {
       </section>
 
       {/* Boutique Preview Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-primary/10">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-14">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="inline-block px-6 py-2 rounded-full bg-gradient-to-r from-primary via-primary-dark to-primary-light shadow-xl mb-6 animate-pulse"
+      >
+        <ShoppingBag size={20} className="text-white mr-2 inline-block align-middle" />
+        <span className="text-base font-semibold text-white tracking-wider uppercase">Notre Boutique</span>
+      </motion.div>
+      <motion.h2
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        className="text-4xl md:text-6xl font-serif font-extrabold mb-4 bg-gradient-to-r from-gray-900 via-primary-dark to-gray-700 bg-clip-text text-transparent drop-shadow-lg"
+      >
+        <span className="relative inline-block pb-2">
+          <span className="z-10 relative">Produits professionnels</span>
+          <span className="absolute left-0 bottom-0 w-full h-2 bg-primary/30 rounded-full blur-sm -z-1"></span>
+        </span>
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.7 }}
+        className="text-gray-700 max-w-2xl mx-auto text-lg font-medium"
+      >
+        Découvrez une sélection de soins experts et de cosmétiques haut de gamme pour sublimer votre routine beauté à la maison.
+      </motion.p>
+    </div>
           <div className="text-center mb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -665,7 +699,7 @@ const Home = () => {
             >
               <ShoppingBag size={16} className="text-primary" />
               <span className="text-sm font-medium bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-                Boutique Exclusive
+                Boutique exclusive
               </span>
             </motion.div>
             <motion.h2
@@ -691,40 +725,7 @@ const Home = () => {
             </motion.p>
           </div>
 
-          {/* Features */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8"
-          >
-            {[
-              {
-                icon: Package,
-                title: "Livraison Gratuite",
-                description: "Pour toute commande supérieure à 100€"
-              },
-              {
-                icon: Truck,
-                title: "Expédition Rapide",
-                description: "Livraison sous 24-48h"
-              },
-              {
-                icon: Shield,
-                title: "Garantie Satisfaction",
-                description: "30 jours pour changer d'avis"
-              }
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <feature.icon size={24} className="text-primary mb-4" />
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
-              </div>
-            ))}
-          </motion.div>
+          
 
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
