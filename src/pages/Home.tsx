@@ -167,12 +167,13 @@ const Home = () => {
         </div>
 
         <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-          <span className="block">Révolution en</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">soins esthétiques</span>
+          <span className="block">Plasma froid russe :</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">la solution utime</span>
         </h1>
 
         <p className="text-lg text-gray-300 leading-relaxed">
-          Le plasma froid médical redéfinit les standards de beauté avec des résultats cliniquement prouvés, sans temps de récupération.
+        Peau abîmée ? Cheveux fins ? Silhouette relâchée ?
+        Notre plasma médical fait ce que la chirurgie ne peut pas.
         </p>
 
         {/* Groupe CTA */}
@@ -283,14 +284,17 @@ const Home = () => {
         </div>
 
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-          Kriola Plasma,
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
-            Excellence en soins
+        Kriola Plasma, l'étincelle  
+        <span>  </span>
+          <span className=" text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
+          qui réveille votre beauté
           </span>
         </h2>
 
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          Votre peau mérite une approche révolutionnaire. Le plasma froid médical offre des résultats cliniquement prouvés pour une transformation visible sans intervention invasive.
+        Chez Kriola Plasma, nous croyons que chaque corps mérite une seconde chance. Fondée sur l’expertise scientifique et la maîtrise du Plasma Froid Russe, notre mission est simple : offrir des solutions là où les autres échouent.
+<br></br>
+Nous ne vendons pas des promesses, nous créons des transformations visibles
         </p>
 
         {/* Statistiques modernes */}
@@ -399,7 +403,7 @@ const Home = () => {
           },
         }}
         modules={[Autoplay, EffectCoverflow]}
-        className="py-10 px-4 sm:px-10"
+        className="py-10"
       >
         {services.map((service, index) => {
           const Icon = service.icon;
@@ -499,11 +503,13 @@ const Home = () => {
             className="flex-1 min-w-[160px]"
           >
             <div className="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl p-3 transition-all duration-300 flex items-center gap-3">
-              <img 
-                src="https://cdn-icons-png.flaticon.com/512/5968/5968566.png" 
-                alt="Google Play" 
-                className="h-8 w-8"
-              />
+              <div className="p-1 rounded-md bg-gray-100 group-hover:bg-gray-200 transition-colors">
+  <img 
+    src="https://cdn-icons-png.flaticon.com/512/732/732208.png" 
+    alt="Google Play" 
+    className="h-6 w-6"
+  />
+</div>
               <div className="text-left">
                 <div className="text-xs text-gray-500">Disponible sur</div>
                 <div className="font-semibold text-gray-900">Google Play</div>
@@ -517,11 +523,13 @@ const Home = () => {
             className="flex-1 min-w-[160px]"
           >
             <div className="bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl p-3 transition-all duration-300 flex items-center gap-3">
-              <img 
-                src="https://cdn-icons-png.flaticon.com/512/179/179309.png" 
-                alt="App Store" 
-                className="h-8 w-8"
-              />
+              <div className="p-1 rounded-md bg-gray-100 group-hover:bg-gray-200 transition-colors">
+  <img 
+    src="https://cdn-icons-png.flaticon.com/512/179/179309.png" 
+    alt="App Store" 
+    className="h-6 w-6"
+  />
+</div>
               <div className="text-left">
                 <div className="text-xs text-gray-500">Télécharger sur</div>
                 <div className="font-semibold text-gray-900">App Store</div>

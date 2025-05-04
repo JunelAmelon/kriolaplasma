@@ -155,11 +155,13 @@ const WebApp = () => {
             >
               <div className="bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-3 border border-gray-200 hover:border-gray-300">
                 <div className="p-1 rounded-md bg-gray-100 group-hover:bg-gray-200 transition-colors">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/179/179309.png"
-                    alt="App Store"
-                    className="h-6 w-6"
-                  />
+                  <div className="p-1 rounded-md bg-gray-100 group-hover:bg-gray-200 transition-colors">
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/179/179309.png"
+    alt="App Store"
+    className="h-6 w-6"
+  />
+</div>
                 </div>
                 <div className="text-left">
                   <div className="text-xs text-gray-500">Télécharger sur</div>
@@ -176,11 +178,13 @@ const WebApp = () => {
             >
               <div className="bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-3 border border-gray-200 hover:border-gray-300">
                 <div className="p-1 rounded-md bg-gray-100 group-hover:bg-gray-200 transition-colors">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/732/732208.png"
-                    alt="Google Play"
-                    className="h-6 w-6"
-                  />
+                  <div className="p-1 rounded-md bg-gray-100 group-hover:bg-gray-200 transition-colors">
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/732/732208.png"
+    alt="Google Play"
+    className="h-6 w-6"
+  />
+</div>
                 </div>
                 <div className="text-left">
                   <div className="text-xs text-gray-500">Disponible sur</div>
