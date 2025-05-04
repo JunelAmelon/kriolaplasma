@@ -531,49 +531,53 @@ const Home = () => {
               animate={servicesInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-primary font-semibold">APPLICATION MOBILE</span>
-              <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
-                Gérez vos Soins depuis
-                <span className="text-primary block">Votre Smartphone</span>
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Suivez vos traitements, prenez rendez-vous et accédez à votre programme personnalisé directement depuis notre application mobile.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <div className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105 transition-transform">
-                    <Download size={20} />
-                    <img
-                      src="https://cdn-icons-png.freepik.com/256/5977/5977575.png?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid"
-                      alt="Télécharger sur l'App Store"
-                      className="h-14 w-auto"
-                    />
-                    <p className="text-center mt-2 text-sm font-medium text-gray-600">App Store</p>
-                  </div>
-                </a>
-                
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <div className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 hover:scale-105 transition-transform">
-                    <Download size={20} />
-                    <img
-                      src="https://cdn-icons-png.freepik.com/256/732/732208.png?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid"
-                      alt="Télécharger sur Google Play"
-                      className="h-14 w-auto"
-                    />
-                    <p className="text-center mt-2 text-sm font-medium text-gray-600">Google Play</p>
-                  </div>
-                </a>
-              </div>
+              <span className="text-primary font-semibold">APPLICATION MOBILE & WEB</span>
+<h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
+  Gérez vos Soins depuis
+  <span className="text-primary block">Votre Smartphone ou votre Navigateur</span>
+</h2>
+<p className="text-gray-600 mb-4">
+  Suivez vos traitements, prenez rendez-vous et accédez à votre programme personnalisé directement depuis notre application mobile <b>ou via notre version web accessible partout</b> !
+</p>
+<a
+  href="https://app.kriolaplasma.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 px-5 py-2 mb-4 rounded-full bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors text-sm"
+>
+  <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 17h8"/><path d="M12 13v4"/></svg>
+  Accéder à la version web
+</a>
+              <div className="flex flex-row gap-4 items-center mt-2">
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex flex-col items-center group"
+    aria-label="Télécharger sur l'App Store"
+  >
+    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1 group-hover:scale-110 transition-transform duration-200">
+      <rect width="38" height="38" rx="12" fill="#fff"/>
+      <path d="M24.5 14.5C23.5 13.5 22.5 13 21.5 13C19.5 13 18 14.5 18 16.5C18 18.5 19.5 20 21.5 20C22.5 20 23.5 19.5 24.5 18.5M19 25.5V26.5C19 27.0523 19.4477 27.5 20 27.5H22C22.5523 27.5 23 27.0523 23 26.5V25.5" stroke="#111" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+      <text x="9" y="33" fontSize="7" fill="#111" fontWeight="bold">App Store</text>
+    </svg>
+    <span className="text-xs text-gray-700 font-medium">App Store</span>
+  </a>
+  <a
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex flex-col items-center group"
+    aria-label="Télécharger sur Google Play"
+  >
+    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1 group-hover:scale-110 transition-transform duration-200">
+      <rect width="38" height="38" rx="12" fill="#fff"/>
+      <path d="M14 13L26 19L14 25V13Z" fill="#111"/>
+      <text x="5" y="33" fontSize="7" fill="#111" fontWeight="bold">Play Store</text>
+    </svg>
+    <span className="text-xs text-gray-700 font-medium">Google Play</span>
+  </a>
+</div>
             </motion.div>
 
             <motion.div
@@ -586,8 +590,8 @@ const Home = () => {
                 <div className="absolute top-0 w-[148px] h-[18px] bg-gray-800 rounded-b-2xl left-1/2 -translate-x-1/2" />
                 <div className="h-full w-full rounded-[2.3rem] overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80"
-                    alt="Kriola Plasma App"
+                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80"
+                    alt="Dashboard Kriola Plasma"
                     className="w-full h-full object-cover"
                   />
                 </div>
