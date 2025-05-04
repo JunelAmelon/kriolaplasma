@@ -548,36 +548,52 @@ const Home = () => {
   <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 17h8"/><path d="M12 13v4"/></svg>
   Accéder à la version web
 </a>
-              <div className="flex flex-row gap-4 items-center mt-2">
+              <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4, duration: 0.6 }}
+  className="flex flex-wrap justify-center gap-6 mt-8"
+>
+  {/* Bouton App Store */}
   <a
     href="#"
     target="_blank"
     rel="noopener noreferrer"
-    className="flex flex-col items-center group"
-    aria-label="Télécharger sur l'App Store"
+    className="group"
   >
-    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1 group-hover:scale-110 transition-transform duration-200">
-      <rect width="38" height="38" rx="12" fill="#fff"/>
-      <path d="M24.5 14.5C23.5 13.5 22.5 13 21.5 13C19.5 13 18 14.5 18 16.5C18 18.5 19.5 20 21.5 20C22.5 20 23.5 19.5 24.5 18.5M19 25.5V26.5C19 27.0523 19.4477 27.5 20 27.5H22C22.5523 27.5 23 27.0523 23 26.5V25.5" stroke="#111" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-      <text x="9" y="33" fontSize="7" fill="#111" fontWeight="bold">App Store</text>
-    </svg>
-    <span className="text-xs text-gray-700 font-medium">App Store</span>
+    <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
+      <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
+        <img
+          src="https://cdn-icons-png.freepik.com/256/5977/5977575.png"
+          alt="App Store"
+          className="h-8 w-8"
+        />
+      </div>
+      <span className="text-sm font-semibold text-gray-700">Download on the</span>
+      <span className="text-lg font-bold text-gray-900">App Store</span>
+    </div>
   </a>
+
+  {/* Bouton Google Play */}
   <a
     href="#"
     target="_blank"
     rel="noopener noreferrer"
-    className="flex flex-col items-center group"
-    aria-label="Télécharger sur Google Play"
+    className="group"
   >
-    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1 group-hover:scale-110 transition-transform duration-200">
-      <rect width="38" height="38" rx="12" fill="#fff"/>
-      <path d="M14 13L26 19L14 25V13Z" fill="#111"/>
-      <text x="5" y="33" fontSize="7" fill="#111" fontWeight="bold">Play Store</text>
-    </svg>
-    <span className="text-xs text-gray-700 font-medium">Google Play</span>
+    <div className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center w-40 border border-gray-200 group-hover:border-gray-300">
+      <div className="p-3 rounded-lg mb-2 group-hover:bg-gray-800 transition-colors duration-300">
+        <img
+          src="https://cdn-icons-png.freepik.com/256/732/732208.png"
+          alt="Google Play"
+          className="h-8 w-8"
+        />
+      </div>
+      <span className="text-sm font-semibold text-gray-700">Get it on</span>
+      <span className="text-lg font-bold text-gray-900">Google Play</span>
+    </div>
   </a>
-</div>
+</motion.div>
             </motion.div>
 
             <motion.div
