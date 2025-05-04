@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Smartphone, Star, Shield, Zap, Calendar, Bell, ArrowRight } from 'lucide-react';
+import { Smartphone, Star, Shield, Zap, Calendar, Bell } from 'lucide-react';
 
 const WebApp = () => {
   return (
@@ -194,7 +194,7 @@ const WebApp = () => {
             href="https://app.kriolaplasma.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 hover:bg-primary text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg text-sm md:text-base"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg text-sm md:text-base"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <rect x="3" y="5" width="18" height="14" rx="2"/>

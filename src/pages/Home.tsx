@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+
 import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -141,17 +141,6 @@ const products = [
 ];
 
 const Home = () => {
-  const [servicesRef, servicesInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const [aboutRef, aboutInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-    rootMargin: '-100px 0px',
-  });
-
   return (
     <>
 
@@ -221,7 +210,7 @@ const Home = () => {
           </div>
           <p className="text-sm text-gray-600 mt-2">Avis clients vérifiés</p>
           <div className="w-full bg-gray-200 rounded-full h-2 mt-4">
-            <div className="bg-primary h-2 rounded-full" style={{width: '96%'}}></div>
+            <div className="bg-primary h-2 rounded-full w-[96%]"></div>
           </div>
         </div>
       </div>
@@ -233,7 +222,7 @@ const Home = () => {
 </section>
 
       {/* About Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
   <div className="container mx-auto px-6">
     <div className="flex flex-col lg:flex-row gap-16 items-center">
       {/* Galerie d'images modernisée */}
@@ -269,17 +258,19 @@ const Home = () => {
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
             {/* Badge flottant moderne */}
-            <div className="absolute -bottom-4 -right-4 bg-white p-5 rounded-xl shadow-lg border border-gray-100">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <Award className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium">Centre Certifié</div>
-                  <div className="text-xs text-gray-500">Expert en Plasma</div>
-                </div>
-              </div>
-            </div>
+            <div className="w-full flex justify-center mt-6 lg:mt-0">
+  <div className="bg-white p-5 rounded-xl shadow-lg border border-gray-100 w-full max-w-xs">
+    <div className="flex items-center gap-3">
+      <div className="p-2 bg-primary/10 rounded-lg">
+        <Award className="w-5 h-5 text-primary" />
+      </div>
+      <div>
+        <div className="text-sm font-medium">Centre Certifié</div>
+        <div className="text-xs text-gray-500">Expert en Plasma</div>
+      </div>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </div>
@@ -346,9 +337,9 @@ const Home = () => {
 </section>
 
       {/* Services Section */}
-      <section ref={servicesRef} className="py-32 bg-white">
+      <section className="py-16 bg-white">
   <div className="container mx-auto px-4">
-    <div className="text-center mb-16">
+    <div className="text-center mb-8">
       {/* Nouveau design pour le titre seulement */}
       <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-primary/10 rounded-full border border-primary/20 mx-auto">
         <Sparkles className="h-5 w-5 text-primary" />
@@ -372,7 +363,7 @@ const Home = () => {
     {/* Conservation exacte du système de cartes existant */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, duration: 0.6 }}
     >
       <Swiper
@@ -462,7 +453,7 @@ const Home = () => {
 </section>
 
       {/* Web App Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
   <div className="container mx-auto px-6">
     <div className="flex flex-col lg:flex-row gap-16 items-center">
       {/* Partie texte - Gauche */}
@@ -488,7 +479,7 @@ const Home = () => {
             href="https://app.kriolaplasma.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-4 bg-gray-900 hover:bg-primary text-white font-medium rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+            className="px-6 py-4 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <rect x="3" y="5" width="18" height="14" rx="2"/>
