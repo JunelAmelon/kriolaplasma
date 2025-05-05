@@ -7,6 +7,7 @@ import { Autoplay, EffectCoverflow } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
+import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
@@ -193,13 +194,15 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Nouvelle colonne témoignages animés */}
+      {/* Colonne témoignages animés */}
       <div className="relative h-[250px] w-full">
         {/* Élément décoratif */}
         <div className="absolute -right-20 top-1/2 transform -translate-y-1/2 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
         
         {/* Conteneur des témoignages */}
         <div className="relative h-full w-full max-w-xs mx-auto lg:ml-auto">
+          {/* Témoignages */}
+          {/* Témoignages avec animation fade in/out */}
           {[
             {
               id: 1,
@@ -236,20 +239,20 @@ const Home = () => {
           ].map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
+              className="absolute inset-0 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 flex flex-col"
               initial={{ opacity: 0, x: 100 }}
               animate={{ 
                 opacity: [0, 1, 1, 0],
                 x: [100, 0, 0, -100]
               }}
               transition={{ 
-                duration: 12,
-                ease: "linear",
+                duration: 8, // Durée totale de l'animation
+                ease: "easeInOut",
                 repeat: Infinity,
-                repeatDelay: 0,
+                repeatDelay: 16, // Attendre que tous les témoignages soient passés
                 times: [0, 0.1, 0.9, 1],
-                delay: index * 3
+                delay: index * 8 // Chaque témoignage attend que le précédent soit terminé
               }}
-              className="absolute inset-0 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 flex flex-col"
             >
               <div className="flex items-center gap-2 mb-3">
                 <img 
