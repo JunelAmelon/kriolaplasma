@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check, Smartphone } from 'lucide-react';
+import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check, Smartphone, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
@@ -155,11 +155,11 @@ const Home = () => {
     <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90" />
   </div>
 
-  {/* Contenu principal avec grille professionnelle */}
+  {/* Contenu principal */}
   <div className="relative z-10 container mx-auto px-6 py-24">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
       
-      {/* Colonne texte */}
+      {/* Colonne texte (inchangée) */}
       <div className="max-w-2xl space-y-8">
         <div className="flex items-center gap-3">
           <div className="w-8 h-px bg-primary"></div>
@@ -168,15 +168,14 @@ const Home = () => {
 
         <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
           <span className="block">Plasma froid russe :</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">la solution utime</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">la solution ultime</span>
         </h1>
 
         <p className="text-lg text-gray-300 leading-relaxed">
-        Peau abîmée ? Cheveux fins ? Silhouette relâchée ?
-        Notre plasma médical fait ce que la chirurgie ne peut pas.
+          Peau abîmée ? Cheveux fins ? Silhouette relâchée ?
+          Notre plasma médical fait ce que la chirurgie ne peut pas.
         </p>
 
-        {/* Groupe CTA */}
         <div className="flex flex-col sm:flex-row gap-4 pt-4">
           <Link
             to="/reservation"
@@ -194,34 +193,100 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Colonne visuelle avec carte de preuve sociale */}
-      <div className="relative h-full min-h-[400px] flex items-center justify-center">
+      {/* Nouvelle colonne témoignages animés */}
+      <div className="relative h-[250px] w-full">
         {/* Élément décoratif */}
         <div className="absolute -right-20 top-1/2 transform -translate-y-1/2 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
         
-        {/* Carte flottante avec preuve sociale */}
-        <div className="relative bg-white/90 backdrop-blur-md p-8 rounded-xl shadow-2xl max-w-xs mx-auto lg:mx-0 lg:ml-auto">
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-primary">4.9/5</span>
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-              ))}
-            </div>
-          </div>
-          <p className="text-sm text-gray-600 mt-2">Avis clients vérifiés</p>
-          <div className="w-full bg-gray-200 rounded-full h-2 mt-4">
-            <div className="bg-primary h-2 rounded-full w-[96%]"></div>
-          </div>
+        {/* Conteneur des témoignages */}
+        <div className="relative h-full w-full max-w-xs mx-auto lg:ml-auto">
+          {[
+            {
+              id: 1,
+              name: "Sophie D.",
+              avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+              role: "Client visage",
+              quote: "Après 3 séances, ma peau a retrouvé une fermeté incroyable. Plus besoin de filer chez le chirurgien !",
+              rating: 5
+            },
+            {
+              id: 2,
+              name: "Marc T.",
+              avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+              role: "Client capillarité",
+              quote: "Mes cheveux avaient beaucoup souffert. Aujourd'hui ils sont plus forts et plus denses. Magique !",
+              rating: 5
+            },
+            {
+              id: 3,
+              name: "Élodie P.",
+              avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+              role: "Client corps",
+              quote: "Le plasma a redessiné ma silhouette naturellement. Un vrai coup de jeune sans bistouri !",
+              rating: 4
+            },
+            {
+              id: 4,
+              name: "Nathalie B.",
+              avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+              role: "Client visage & corps",
+              quote: "À 52 ans, je n'avais jamais osé la chirurgie. Le plasma m'a redonné confiance en moi.",
+              rating: 5
+            }
+          ].map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ 
+                opacity: [0, 1, 1, 0],
+                x: [100, 0, 0, -100]
+              }}
+              transition={{ 
+                duration: 12,
+                ease: "linear",
+                repeat: Infinity,
+                repeatDelay: 0,
+                times: [0, 0.1, 0.9, 1],
+                delay: index * 3
+              }}
+              className="absolute inset-0 bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 flex flex-col"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <img 
+                  src={testimonial.avatar} 
+                  alt={testimonial.name} 
+                  className="w-10 h-10 rounded-full object-cover border-2 border-primary/20"
+                />
+                <div>
+                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                  <p className="text-sm text-primary">{testimonial.role}</p>
+                </div>
+              </div>
+              
+              <div className="flex mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star 
+                    key={i} 
+                    className={`h-5 w-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} 
+                  />
+                ))}
+              </div>
+              
+              <p className="text-gray-600 italic mb-3 flex-1 text-xs">"{testimonial.quote}"</p>
+              
+              <div className="flex justify-end">
+                <Heart className="h-4 w-4 text-primary fill-primary/20" />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
   </div>
 
-  {/* Élément décoratif subtil */}
+  {/* Élément décoratif */}
   <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64 h-64 rounded-full bg-primary/10 blur-3xl z-0"></div>
 </section>
-
       {/* About Section */}
       <section className="py-16 bg-white">
   <div className="container mx-auto px-6">
