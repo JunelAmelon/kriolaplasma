@@ -610,11 +610,11 @@ Nous ne vendons pas des promesses, nous créons des transformations visibles
       {/* Partie visuelle - Droite */}
       <div className="flex-1 relative w-full max-w-xl">
         {/* Nouvelle image webapp */}
-        <div className="relative mx-auto w-full max-w-md">
+        <div className="relative mx-auto w-full max-w-md lg:max-w-sm">
           <img
             src="/images/webapp.png"
             alt="Application Web Kriola Plasma"
-            className="w-full h-auto rounded-lg shadow-xl"
+            className="w-full h-auto rounded-lg shadow-xl lg:w-[90%] lg:mx-auto"
           />
           <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-gray-900/10 via-transparent to-transparent" />
         </div>

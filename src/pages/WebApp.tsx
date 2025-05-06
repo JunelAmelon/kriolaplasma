@@ -50,12 +50,12 @@ const WebApp = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative mx-auto w-full max-w-lg z-10"
+            className="relative mx-auto w-full max-w-lg md:max-w-md z-10"
           >
             <img
               src="/images/webapp.png"
               alt="Application Web Kriola Plasma"
-              className="w-full h-auto rounded-lg shadow-xl"
+              className="w-full h-auto rounded-lg shadow-xl lg:w-[90%] lg:mx-auto"
             />
             <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-gray-900/10 via-transparent to-transparent" />
           </motion.div>
