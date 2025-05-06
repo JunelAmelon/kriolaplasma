@@ -55,9 +55,8 @@ const WebApp = () => {
             <img
               src="/images/webapp.png"
               alt="Application Web Kriola Plasma"
-              className="w-full h-auto rounded-lg shadow-xl lg:w-[90%] lg:mx-auto"
+              className="w-full h-auto lg:w-[90%] lg:mx-auto"
             />
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-gray-900/10 via-transparent to-transparent" />
           </motion.div>
 
           {/* Cartes flottantes - Position absolue modifiée pour mobile */}
