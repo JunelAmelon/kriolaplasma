@@ -609,20 +609,14 @@ Nous ne vendons pas des promesses, nous créons des transformations visibles
 
       {/* Partie visuelle - Droite */}
       <div className="flex-1 relative w-full max-w-xl">
-        {/* Mockup mobile moderne */}
-        <div className="relative mx-auto w-[280px] h-[580px] bg-gray-900 rounded-[40px] p-1 shadow-2xl">
-          {/* Encoche */}
-          <div className="absolute top-0 w-[120px] h-[24px] bg-gray-900 rounded-b-xl left-1/2 -translate-x-1/2 z-10" />
-          
-          {/* Écran */}
-          <div className="relative h-full w-full rounded-[36px] overflow-hidden border-[12px] border-gray-900">
-            <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-              alt="Application Kriola Plasma"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-gray-900/20 to-transparent" />
-          </div>
+        {/* Nouvelle image webapp */}
+        <div className="relative mx-auto w-full max-w-md">
+          <img
+            src="/images/webapp.png"
+            alt="Application Web Kriola Plasma"
+            className="w-full h-auto rounded-lg shadow-xl"
+          />
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-gray-900/10 via-transparent to-transparent" />
         </div>
 
         {/* Éléments décoratifs */}

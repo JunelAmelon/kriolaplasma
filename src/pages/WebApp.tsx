@@ -50,17 +50,14 @@ const WebApp = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative mx-auto w-[260px] md:w-[280px] h-[520px] md:h-[580px] bg-gray-900 rounded-[32px] md:rounded-[40px] p-1 shadow-2xl z-10"
+            className="relative mx-auto w-full max-w-lg z-10"
           >
-            <div className="absolute top-0 w-[100px] md:w-[120px] h-[20px] md:h-[24px] bg-gray-900 rounded-b-xl left-1/2 -translate-x-1/2 z-10" />
-            <div className="relative h-full w-full rounded-[28px] md:rounded-[36px] overflow-hidden border-[10px] md:border-[12px] border-gray-900">
-              <img
-                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-                alt="Kriola Plasma App"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-gray-900/20 to-transparent" />
-            </div>
+            <img
+              src="/images/webapp.png"
+              alt="Application Web Kriola Plasma"
+              className="w-full h-auto rounded-lg shadow-xl"
+            />
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-gray-900/10 via-transparent to-transparent" />
           </motion.div>
 
           {/* Cartes flottantes - Position absolue modifiée pour mobile */}
