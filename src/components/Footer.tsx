@@ -120,7 +120,6 @@ const Footer = () => {
             </Link>
           </div>
           <p>&copy; {new Date().getFullYear()} Kriola Plasma. Tous droits réservés.</p>
-          <p className="mt-2 text-sm">Développé par Junel BOKO ASSOGBA</p>
         </div>
       </div>
     </footer>

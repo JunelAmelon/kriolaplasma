@@ -26,7 +26,7 @@ const CGU = () => {
             className="text-4xl md:text-5xl font-bold mb-6"
           >
             <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Conditions Gu00e9nu00e9rales
+              Conditions Générales
             </span>
             <span className="block mt-2 bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
               d'Utilisation
@@ -51,74 +51,74 @@ const CGU = () => {
           className="bg-white rounded-2xl shadow-lg p-8 mb-12"
         >
           <div className="space-y-10">
-            {/* Pru00e9ambule */}
+            {/* Préambule */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <Info className="text-primary" size={24} />
-                Pru00e9ambule
+                Préambule
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  Les pru00e9sentes conditions gu00e9nu00e9rales d'utilisation (ci-apru00e8s du00e9nommu00e9es "CGU") ru00e9gissent l'utilisation du site web 
-                  Kriola Plasma (ci-apru00e8s du00e9nommu00e9 "le Site") accessible u00e0 l'adresse www.kriola-plasma.com, ainsi que les services 
-                  qui y sont proposu00e9s.
+                  Les présentes conditions générales d'utilisation (ci-après dénommées "CGU") régissent l'utilisation du site web 
+                  Kriola Plasma (ci-après dénommé "le Site") accessible à l'adresse www.kriola-plasma.com, ainsi que les services 
+                  qui y sont proposés.
                 </p>
                 <p>
-                  En accu00e9dant au Site et en utilisant nos services, vous acceptez sans ru00e9serve les pru00e9sentes CGU. Si vous n'acceptez pas 
+                  En accédant au Site et en utilisant nos services, vous acceptez sans réserve les présentes CGU. Si vous n'acceptez pas 
                   ces conditions, veuillez ne pas utiliser notre Site.
                 </p>
                 <p>
-                  Kriola Plasma se ru00e9serve le droit de modifier les pru00e9sentes CGU u00e0 tout moment. Les modifications prennent effet du00e8s 
-                  leur publication sur le Site. Il vous appartient de consulter ru00e9guliu00e8rement les CGU en vigueur.
+                  Kriola Plasma se réserve le droit de modifier les présentes CGU à tout moment. Les modifications prennent effet dès 
+                  leur publication sur le Site. Il vous appartient de consulter régulièrement les CGU en vigueur.
                 </p>
               </div>
             </div>
 
-            {/* Services proposu00e9s */}
+            {/* Services proposés */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <CheckCircle className="text-primary" size={24} />
-                Services proposu00e9s
+                Services proposés
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  Kriola Plasma propose des services de soins esthu00e9tiques et de bien-u00eatre utilisant la technologie du plasma froid russe. 
+                  Kriola Plasma propose des services de soins esthétiques et de bien-être utilisant la technologie du plasma froid russe. 
                   Ces services comprennent notamment :
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li>Des soins anti-u00e2ge pour le visage et le corps</li>
+                  <li>Des soins anti-âge pour le visage et le corps</li>
                   <li>Des traitements capillaires</li>
-                  <li>Des soins anti-acnu00e9</li>
+                  <li>Des soins anti-acné</li>
                   <li>Des soins post-grossesse</li>
-                  <li>La vente de produits cosmu00e9tiques</li>
+                  <li>La vente de produits cosmétiques</li>
                 </ul>
                 <p>
-                  Les services sont fournis sur rendez-vous, qui peuvent u00eatre pris via notre plateforme de ru00e9servation en ligne.
+                  Les services sont fournis sur rendez-vous, qui peuvent être pris via notre plateforme de réservation en ligne.
                 </p>
               </div>
             </div>
 
-            {/* Conditions de ru00e9servation et d'annulation */}
+            {/* Conditions de réservation et d'annulation */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <FileText className="text-primary" size={24} />
-                Conditions de ru00e9servation et d'annulation
+                Conditions de réservation et d'annulation
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  <strong>Ru00e9servation :</strong> Toute ru00e9servation effectuu00e9e sur notre Site est considu00e9ru00e9e comme ferme et du00e9finitive 
-                  apru00e8s confirmation par email et/ou SMS.
+                  <strong>Réservation :</strong> Toute réservation effectuée sur notre Site est considérée comme ferme et définitive 
+                  après confirmation par email et/ou SMS.
                 </p>
                 <p>
-                  <strong>Paiement :</strong> Le paiement des services peut u00eatre effectuu00e9 en ligne lors de la ru00e9servation ou sur place 
-                  le jour du rendez-vous. Les tarifs indiquu00e9s sur le Site sont en euros TTC.
+                  <strong>Paiement :</strong> Le paiement des services peut être effectué en ligne lors de la réservation ou sur place 
+                  le jour du rendez-vous. Les tarifs indiqués sur le Site sont en euros TTC.
                 </p>
                 <p>
-                  <strong>Annulation :</strong> Toute annulation doit u00eatre effectuu00e9e au moins 24 heures avant l'heure du rendez-vous. 
-                  En cas d'annulation tardive ou de non-pru00e9sentation, le montant total de la prestation pourra u00eatre exigu00e9.
+                  <strong>Annulation :</strong> Toute annulation doit être effectuée au moins 24 heures avant l'heure du rendez-vous. 
+                  En cas d'annulation tardive ou de non-présentation, le montant total de la prestation pourra être exigé.
                 </p>
                 <p>
-                  <strong>Report :</strong> Les demandes de report de rendez-vous sont soumises aux mu00eames conditions que les annulations.
+                  <strong>Report :</strong> Les demandes de report de rendez-vous sont soumises aux mêmes conditions que les annulations.
                 </p>
               </div>
             </div>
@@ -131,121 +131,121 @@ const CGU = () => {
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  <strong>Commande :</strong> Toute commande passu00e9e sur notre Site est soumise aux pru00e9sentes CGU. La commande n'est 
-                  du00e9finitive qu'apru00e8s confirmation du paiement.
+                  <strong>Commande :</strong> Toute commande passée sur notre Site est soumise aux présentes CGU. La commande n'est 
+                  définitive qu'après confirmation du paiement.
                 </p>
                 <p>
-                  <strong>Prix :</strong> Les prix des produits sont indiquu00e9s en euros TTC. Kriola Plasma se ru00e9serve le droit de 
-                  modifier ses prix u00e0 tout moment, mais les produits seront facturu00e9s sur la base des tarifs en vigueur au moment 
+                  <strong>Prix :</strong> Les prix des produits sont indiqués en euros TTC. Kriola Plasma se réserve le droit de 
+                  modifier ses prix à tout moment, mais les produits seront facturés sur la base des tarifs en vigueur au moment 
                   de la validation de la commande.
                 </p>
                 <p>
-                  <strong>Livraison :</strong> Les du00e9lais de livraison sont donnu00e9s u00e0 titre indicatif. Les frais de livraison sont 
-                  u00e0 la charge du client et sont indiquu00e9s avant la validation de la commande.
+                  <strong>Livraison :</strong> Les délais de livraison sont donnés à titre indicatif. Les frais de livraison sont 
+                  à la charge du client et sont indiqués avant la validation de la commande.
                 </p>
                 <p>
-                  <strong>Droit de ru00e9tractation :</strong> Conformu00e9ment u00e0 la lu00e9gislation en vigueur, vous disposez d'un du00e9lai de 
-                  14 jours u00e0 compter de la ru00e9ception du produit pour exercer votre droit de ru00e9tractation, sans avoir u00e0 justifier 
-                  de motifs ni u00e0 payer de pu00e9nalitu00e9s.
+                  <strong>Droit de rétractation :</strong> Conformément à la législation en vigueur, vous disposez d'un délai de 
+                  14 jours à compter de la réception du produit pour exercer votre droit de rétractation, sans avoir à justifier 
+                  de motifs ni à payer de pénalités.
                 </p>
               </div>
             </div>
 
-            {/* Responsabilitu00e9s et garanties */}
+            {/* Responsabilités et garanties */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <AlertCircle className="text-primary" size={24} />
-                Responsabilitu00e9s et garanties
+                Responsabilités et garanties
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  Kriola Plasma s'efforce d'assurer au mieux de ses possibilitu00e9s l'exactitude et la mise u00e0 jour des informations 
-                  diffusu00e9es sur le Site. Toutefois, Kriola Plasma ne peut garantir l'exactitude, la pru00e9cision ou l'exhaustivitu00e9 
-                  des informations mises u00e0 disposition sur le Site.
+                  Kriola Plasma s'efforce d'assurer au mieux de ses possibilités l'exactitude et la mise à jour des informations 
+                  diffusées sur le Site. Toutefois, Kriola Plasma ne peut garantir l'exactitude, la précision ou l'exhaustivité 
+                  des informations mises à disposition sur le Site.
                 </p>
                 <p>
-                  Kriola Plasma du00e9cline toute responsabilitu00e9 :
+                  Kriola Plasma décline toute responsabilité :
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>Pour toute interruption du Site</li>
                   <li>Pour toute survenance de bugs</li>
                   <li>Pour toute inexactitude ou omission portant sur des informations disponibles sur le Site</li>
-                  <li>Pour tous dommages ru00e9sultant d'une intrusion frauduleuse d'un tiers ayant entrau00eenu00e9 une modification des informations mises u00e0 disposition sur le Site</li>
+                  <li>Pour tous dommages résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations mises à disposition sur le Site</li>
                 </ul>
               </div>
             </div>
 
-            {/* Propriu00e9tu00e9 intellectuelle */}
+            {/* Propriété intellectuelle */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <Shield className="text-primary" size={24} />
-                Propriu00e9tu00e9 intellectuelle
+                Propriété intellectuelle
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  L'ensemble des u00e9lu00e9ments constituant le Site (textes, graphismes, logiciels, photographies, images, vidu00e9os, sons, 
-                  plans, logos, marques, etc.) ainsi que le Site lui-mu00eame, sont protu00e9gu00e9s par les lois relatives u00e0 la propriu00e9tu00e9 
+                  L'ensemble des éléments constituant le Site (textes, graphismes, logiciels, photographies, images, vidéos, sons, 
+                  plans, logos, marques, etc.) ainsi que le Site lui-même, sont protégés par les lois relatives à la propriété 
                   intellectuelle.
                 </p>
                 <p>
-                  Ces u00e9lu00e9ments sont la propriu00e9tu00e9 exclusive de Kriola Plasma. Toute reproduction, repru00e9sentation, utilisation ou 
-                  adaptation, sous quelque forme que ce soit, de tout ou partie de ces u00e9lu00e9ments, sans l'accord pru00e9alable et u00e9crit 
+                  Ces éléments sont la propriété exclusive de Kriola Plasma. Toute reproduction, représentation, utilisation ou 
+                  adaptation, sous quelque forme que ce soit, de tout ou partie de ces éléments, sans l'accord préalable et écrit 
                   de Kriola Plasma, est strictement interdite.
                 </p>
               </div>
             </div>
 
-            {/* Protection des donnu00e9es personnelles */}
+            {/* Protection des données personnelles */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <Shield className="text-primary" size={24} />
-                Protection des donnu00e9es personnelles
+                Protection des données personnelles
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  Kriola Plasma s'engage u00e0 respecter la confidentialitu00e9 des donnu00e9es personnelles communiquu00e9es par les utilisateurs 
-                  du Site et u00e0 les traiter dans le respect du Ru00e8glement Gu00e9nu00e9ral sur la Protection des Donnu00e9es (RGPD).
+                  Kriola Plasma s'engage à respecter la confidentialité des données personnelles communiquées par les utilisateurs 
+                  du Site et à les traiter dans le respect du Règlement Général sur la Protection des Données (RGPD).
                 </p>
                 <p>
-                  Les informations que nous collectons sont nu00e9cessaires au traitement de votre demande et sont destinu00e9es aux services 
-                  concernu00e9s de notre sociu00e9tu00e9. Elles peuvent u00eatre transmises u00e0 nos partenaires chargu00e9s de l'exu00e9cution, du traitement, 
+                  Les informations que nous collectons sont nécessaires au traitement de votre demande et sont destinées aux services 
+                  concernés de notre société. Elles peuvent être transmises à nos partenaires chargés de l'exécution, du traitement, 
                   de la gestion et du paiement des commandes.
                 </p>
                 <p>
-                  Conformu00e9ment u00e0 la ru00e9glementation en vigueur, vous disposez d'un droit d'accu00e8s, de rectification, de suppression 
-                  et d'opposition aux informations qui vous concernent. Vous pouvez exercer ce droit en nous u00e9crivant u00e0 l'adresse 
+                  Conformément à la réglementation en vigueur, vous disposez d'un droit d'accès, de rectification, de suppression 
+                  et d'opposition aux informations qui vous concernent. Vous pouvez exercer ce droit en nous écrivant à l'adresse 
                   suivante : dpo@kriola-plasma.com.
                 </p>
               </div>
             </div>
 
-            {/* Loi applicable et juridiction compu00e9tente */}
+            {/* Loi applicable et juridiction compétente */}
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <FileText className="text-primary" size={24} />
-                Loi applicable et juridiction compu00e9tente
+                Loi applicable et juridiction compétente
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-4">
                 <p>
-                  Les pru00e9sentes CGU sont ru00e9gies par le droit franu00e7ais.
+                  Les présentes CGU sont régies par le droit français.
                 </p>
                 <p>
-                  En cas de litige, une solution amiable sera recherchu00e9e avant toute action judiciaire. u00c0 du00e9faut d'accord amiable, 
-                  les tribunaux franu00e7ais seront seuls compu00e9tents.
+                  En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. À défaut d'accord amiable, 
+                  les tribunaux français seront seuls compétents.
                 </p>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Derniu00e8re mise u00e0 jour */}
+        {/* Dernière mise à jour */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-center text-gray-500 text-sm"
         >
-          Derniu00e8re mise u00e0 jour : 8 mai 2025
+          Dernière mise à jour : 8 mai 2025
         </motion.div>
       </div>
     </div>

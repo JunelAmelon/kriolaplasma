@@ -62,7 +62,7 @@ const MentionsLegales = () => {
                 <p><strong>Adresse :</strong> 123 Avenue des Soins, 75001 Paris, France</p>
                 <p><strong>Téléphone :</strong> 01 23 45 67 89</p>
                 <p><strong>Email :</strong> contact@kriola-plasma.com</p>
-                <p><strong>Directeur de la publication :</strong> Junel BOKO ASSOGBA</p>
+                <p><strong>Directeur de la publication :</strong> Kriola Plasma</p>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ const MentionsLegales = () => {
                 Crédits
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-2">
-                <p><strong>Conception et développement :</strong> Junel BOKO ASSOGBA</p>
+                <p><strong>Conception et développement :</strong> Kriola Plasma</p>
                 <p><strong>Photographies :</strong> Freepik, Unsplash, Pexels</p>
                 <p><strong>Icônes :</strong> Lucide Icons</p>
               </div>
