@@ -13,6 +13,7 @@ const Navbar = () => {
   const menuItems = [
     { path: '/services', label: 'Soins & Services' },
     { path: '/boutique', label: 'Boutique' },
+    { path: '/formation', label: 'Formation' },
     { path: '/app', label: 'Web App' },
     { path: '/contact', label: 'Contact' }
   ];

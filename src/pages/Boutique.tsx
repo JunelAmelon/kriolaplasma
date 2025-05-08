@@ -1,7 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ShoppingBag, Star, Package, Truck, Shield, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Package, Truck, Shield } from 'lucide-react';
+import { useCartStore } from '../store/cartStore';
+import Cart from '../components/Cart';
+import ProductCard from '../components/ProductCard';
 
 const products = [
   {
@@ -39,6 +41,8 @@ const products = [
 ];
 
 const Boutique = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { getTotalItems } = useCartStore();
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-primary/10 pt-32 pb-20">
@@ -119,40 +123,26 @@ const Boutique = () => {
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div className="relative aspect-square overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <Link to="/reservation" className="absolute bottom-4 left-4 right-4 bg-white text-gray-900 py-2 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-                  Commander
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-                <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-primary font-bold">{product.price}</span>
-                  <div className="flex items-center gap-1">
-                    <Star size={16} className="text-primary fill-primary" />
-                    <span className="text-sm text-gray-600">{product.rating}</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <ProductCard key={product.id} product={product} index={index} />
           ))}
         </div>
       </div>
+      
+      {/* Floating Cart Button */}
+      <button
+        onClick={() => setIsCartOpen(true)}
+        className="fixed bottom-8 right-8 bg-primary hover:bg-primary-dark text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center z-10"
+      >
+        <ShoppingBag size={24} />
+        {getTotalItems() > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">
+            {getTotalItems()}
+          </span>
+        )}
+      </button>
+      
+      {/* Cart Modal */}
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </div>
   );
 };

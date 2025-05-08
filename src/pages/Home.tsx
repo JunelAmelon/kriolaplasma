@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-
+import { useState } from 'react';
 import { ChevronRight, Star, ArrowRight, Award, Clock, Shield, ShoppingBag, Sparkles, Zap, Scissors, Brain, Sun, Check, Smartphone, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ProductCard from '../components/ProductCard';
+import Cart from '../components/Cart';
+import { useCartStore } from '../store/cartStore';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
 // Import Swiper styles
@@ -29,7 +32,7 @@ const services = [
   },
   {
     title: "Soin Visage Anti-Acné",
-    description: "L'acné n'aura plus jamais droit de cité sur votre visage ! Notre arme secrète élimine boutons et kystes sans merci.",
+    description: "Dites adieu à l’acné ! Notre solution élimine boutons et kystes en profondeur, pour une peau nette et saine.",
     icon: Shield,
     price: "À partir de 145€ la séance",
     duration: "40 min",
@@ -59,14 +62,14 @@ const services = [
   },
   {
     title: "Lifting Regard Express",
-    description: "Rajeunissez votre regard instantanément avec notre solution non chirurgicale pour paupières tombantes.",
+    description: "Atténue le relâchement cutané (paupières tombantes, bajoues, cou fripé…)",
     icon: Scissors,
     price: "À partir de 225€ la séance.",
     duration: "25 min",
     benefits: [
-      "Effet 'yeux ouverts' garanti",
-      "Solution même pour blépharochalasis sévère",
-      "Aucune trace, retour au travail direct"
+      "Lisse les rides et ridules",
+      "Redéfinit les contours du visage (ovale, pommettes, paupières, front…)",
+      "Donne un coup d’éclat général"
     ],
     image: "https://img.freepik.com/free-photo/portrait-sensual-brunette-woman-pink-jacket_197531-16810.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740",
     rating: 4.9,
@@ -98,7 +101,7 @@ const services = [
       "Effet lifting instantané",
       "Protection anti-âge longue durée"
     ],
-    image: "https://img.freepik.com/free-photo/before-after-portrait-woman-retouched_23-2149121640.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740",
+    image: "/images/soinvieillsement.png",
     rating: 4.9,
     badge: "🏆 Prix de l'innovation esthétique 2024"
   }
@@ -142,6 +145,9 @@ const products = [
 ];
 
 const Home = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { getTotalItems } = useCartStore();
+  
   return (
     <>
 
@@ -306,7 +312,7 @@ const Home = () => {
           </div>
           <div className="rounded-2xl overflow-hidden aspect-[4/3]">
             <img
-              src="https://img.freepik.com/free-photo/beautiful-female-wearing-pink-gloves-showing-filled-syringe-camera-close-up-portrait_7502-10384.jpg"
+              src="/images/visuel-head-spa.jpg"
               alt="Nos équipements"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
@@ -322,7 +328,7 @@ const Home = () => {
           </div>
           <div className="rounded-2xl overflow-hidden aspect-square relative">
             <img
-              src="https://img.freepik.com/free-photo/portrait-young-beautiful-woman-with-moisturizing-cream_23-2150331756.jpg"
+              src="/images/kriolarusse.png"
               alt="Notre institut"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
@@ -667,45 +673,30 @@ Nous ne vendons pas des promesses, nous créons des transformations visibles
       </motion.p>
     </div>
 
-    {/* Grille de produits inchangée */}
+    {/* Grille de produits avec composant réutilisable */}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {products.map((product, index) => (
-        <motion.div
-          key={product.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-          className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          <div className="relative aspect-square overflow-hidden">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <Link to="/reservation" className="absolute bottom-4 left-4 right-4 bg-white text-gray-900 py-2 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 flex items-center justify-center gap-2">
-              Commander
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-          <div className="p-6">
-            <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-            <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-            <div className="flex items-center justify-between">
-              <span className="text-primary font-bold">{product.price}</span>
-              <div className="flex items-center gap-1">
-                <Star size={16} className="text-primary fill-primary" />
-                <span className="text-sm text-gray-600">{product.rating}</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <ProductCard key={product.id} product={product} index={index} />
       ))}
     </div>
   </div>
 </section>
 
+      {/* Floating Cart Button */}
+      <button
+        onClick={() => setIsCartOpen(true)}
+        className="fixed bottom-8 right-8 bg-primary hover:bg-primary-dark text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center z-10"
+      >
+        <ShoppingBag size={24} />
+        {getTotalItems() > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center">
+            {getTotalItems()}
+          </span>
+        )}
+      </button>
+      
+      {/* Cart Modal */}
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </>
   );
 };

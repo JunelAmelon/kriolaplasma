@@ -28,8 +28,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/formations" className="text-gray-400 hover:text-primary transition-colors">
-                  Formations
+                <Link to="/formation" className="text-gray-400 hover:text-primary transition-colors">
+                  Formation
                 </Link>
               </li>
               <li>
@@ -110,7 +110,17 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+          <div className="flex justify-center space-x-4 mb-4">
+            <Link to="/mentions-legales" className="hover:text-primary transition-colors">
+              Mentions Légales
+            </Link>
+            <span>|</span>
+            <Link to="/cgu" className="hover:text-primary transition-colors">
+              CGU
+            </Link>
+          </div>
           <p>&copy; {new Date().getFullYear()} Kriola Plasma. Tous droits réservés.</p>
+          <p className="mt-2 text-sm">Développé par Junel BOKO ASSOGBA</p>
         </div>
       </div>
     </footer>
