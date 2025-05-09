@@ -7,87 +7,46 @@ import { toast } from 'react-toastify';
 
 // Composants pour Stripe
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import StripePaymentForm from '../components/StripePaymentForm';
+import StripeProvider from '../components/StripeProvider';
 
 // Composants pour PayPal
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
-// Remplacez par votre clé publique Stripe (à mettre dans un .env en production)
-const stripePromise = loadStripe('pk_test_votreclépublique');
+// Clé publique Stripe
+const stripePromise = loadStripe('pk_test_51RMnpsQ8IBztqCOIBmaqhc2X1mtkUcGkp8iOxgH4WUGqfWzgjoi9lNofX9XktkA2pHzJMC6sszFhCZO2slWeIRyI00NKm8KXkF');
 
 const PaymentForm = () => {
   const [paymentMethod, setPaymentMethod] = useState<'stripe' | 'paypal'>('stripe');
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [paymentError, setPaymentError] = useState<string | null>(null);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [orderId, setOrderId] = useState<number | null>(null);
   
-  const { getTotalPrice, clearCart } = useCartStore();
+  const { getTotalPrice, clearCart, items } = useCartStore();
   const navigate = useNavigate();
   
-  const stripe = useStripe();
-  const elements = useElements();
-  
-  const handleStripeSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    
-    if (!stripe || !elements) {
-      toast.error('Le service de paiement Stripe n\'est pas disponible pour le moment. Veuillez réessayer plus tard.');
-      return;
-    }
-    
-    setIsProcessing(true);
-    setPaymentError(null);
-    
-    // Dans un environnement réel, vous devriez appeler votre API backend ici
-    // qui créerait une intention de paiement avec Stripe
-    
-    // Simulation d'un appel API
-    try {
-      // Afficher un toast de chargement
-      const loadingToast = toast.loading('Traitement de votre paiement en cours...');
-      
-      // Simuler une requête réseau
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Simulation de paiement réussi
-      setPaymentSuccess(true);
-      clearCart();
-      
-      // Mettre à jour le toast de chargement avec un message de succès
-      toast.update(loadingToast, { 
-        render: 'Paiement réussi ! Merci pour votre commande.', 
-        type: 'success', 
-        isLoading: false,
-        autoClose: 5000
-      });
-      
-      // Redirection après 2 secondes
-      setTimeout(() => {
-        navigate('/boutique');
-      }, 2000);
-      
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Une erreur inconnue est survenue';
-      setPaymentError(errorMessage);
-      toast.error(`Erreur de paiement: ${errorMessage}`);
-    } finally {
-      setIsProcessing(false);
-    }
+  // Simuler la création d'une commande
+  const createOrder = () => {
+    // Dans une implémentation réelle, vous appelleriez votre API pour créer une commande
+    // et récupérer l'ID de la commande
+    return {
+      id: Math.floor(Math.random() * 1000000),
+      total: getTotalPrice()
+    };
   };
   
-  const handlePayPalSuccess = async () => {
+  // Gérer le succès du paiement Stripe
+  const handleStripePaymentSuccess = (paymentIntentId: string) => {
     setPaymentSuccess(true);
     clearCart();
     
-    // Afficher un toast de succès
-    toast.success('Paiement PayPal réussi ! Merci pour votre commande.', {
+    toast.success('Paiement par carte réussi ! Merci pour votre commande.', {
       position: 'top-center',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
     });
     
     // Redirection après 2 secondes
@@ -95,6 +54,46 @@ const PaymentForm = () => {
       navigate('/boutique');
     }, 2000);
   };
+  
+  // Gérer les erreurs de paiement Stripe
+  const handleStripePaymentError = (error: string) => {
+    toast.error(`Erreur de paiement: ${error}`, {
+      position: 'top-center',
+      autoClose: 7000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+  
+  // Gérer le succès du paiement PayPal
+  const handlePayPalSuccess = async () => {
+    setPaymentSuccess(true);
+    clearCart();
+    
+    toast.success('Paiement PayPal réussi ! Merci pour votre commande.', {
+      position: 'top-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    
+    // Redirection après 2 secondes
+    setTimeout(() => {
+      navigate('/boutique');
+    }, 2000);
+  };
+  
+  // Créer une commande si elle n'existe pas encore
+  React.useEffect(() => {
+    if (!orderId && items.length > 0) {
+      const order = createOrder();
+      setOrderId(order.id);
+    }
+  }, [orderId, items]);
   
   if (paymentSuccess) {
     return (
@@ -155,38 +154,16 @@ const PaymentForm = () => {
         </div>
         
         {paymentMethod === 'stripe' ? (
-          <form onSubmit={handleStripeSubmit} className="space-y-6">
-            <div className="border rounded-lg p-4">
-              <CardElement 
-                options={{
-                  style: {
-                    base: {
-                      fontSize: '16px',
-                      color: '#424770',
-                      '::placeholder': {
-                        color: '#aab7c4',
-                      },
-                    },
-                    invalid: {
-                      color: '#9e2146',
-                    },
-                  },
-                }}
+          <div className="space-y-6">
+            {orderId && (
+              <StripePaymentForm 
+                orderId={orderId} 
+                amount={getTotalPrice()} 
+                onPaymentSuccess={handleStripePaymentSuccess}
+                onPaymentError={handleStripePaymentError}
               />
-            </div>
-            
-            {paymentError && (
-              <div className="text-red-500 text-sm">{paymentError}</div>
             )}
-            
-            <button
-              type="submit"
-              disabled={!stripe || isProcessing}
-              className="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg text-center font-medium transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
-            >
-              {isProcessing ? 'Traitement en cours...' : `Payer ${getTotalPrice().toFixed(2)}€`}
-            </button>
-          </form>
+          </div>
         ) : (
           <div className="space-y-6">
             <PayPalButtons
@@ -313,9 +290,9 @@ const Checkout = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="bg-white rounded-2xl shadow-lg p-8 mb-8"
             >
-              <Elements stripe={stripePromise}>
+              <StripeProvider>
                 <PaymentForm />
-              </Elements>
+              </StripeProvider>
             </motion.div>
           </div>
           
@@ -414,7 +391,7 @@ const Checkout = () => {
 
 // Wrapper pour fournir le contexte PayPal
 const CheckoutWithPayPal = () => {
-  // Utilisation de la clu00e9 client PayPal depuis les variables d'environnement
+  // Utilisation de la clé client PayPal depuis les variables d'environnement
   const paypalClientId = import.meta.env.VITE_PAYPAL_CLIENT_ID || 'AaLHBer1MhNnlb321T6NdSzV_ZU6obnVUhgyoiEGUHwpBhNaJLDnRr6nMMdiaOKy2gduSvv9iSpjOGKW';
   
   return (

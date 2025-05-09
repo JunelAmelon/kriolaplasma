@@ -29,7 +29,7 @@ const formations: Formation[] = [
     duration: "5 jours (35h)",
     sessions: 5,
     level: "Professionnel",
-    image: "https://img.freepik.com/free-photo/beautician-doing-face-treatment-client_23-2149067520.jpg?w=996&t=st=1714189377~exp=1714189977~hmac=a8b4e7d0f2c6b4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4",
+    image: "https://img.freepik.com/free-photo/person-getting-micro-needling-beauty-treatment_23-2149334293.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740",
     features: [
       "Certification officielle",
       "Kit de démarrage inclus",
@@ -52,7 +52,7 @@ const formations: Formation[] = [
     duration: "3 jours (21h)",
     sessions: 3,
     level: "Intermédiaire",
-    image: "https://img.freepik.com/free-photo/hairdresser-doing-hair-treatment-client_23-2149230844.jpg?w=996&t=st=1714189377~exp=1714189977~hmac=a8b4e7d0f2c6b4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4",
+    image: "https://img.freepik.com/free-photo/person-enjoying-scalp-massage-spa_23-2151454867.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740",
     features: [
       "Techniques spécifiques pour le cuir chevelu",
       "Étude des cas cliniques",
@@ -75,7 +75,7 @@ const formations: Formation[] = [
     duration: "2 jours (14h)",
     sessions: 2,
     level: "Débutant",
-    image: "https://img.freepik.com/free-photo/beautician-with-client-beauty-salon_1157-27299.jpg?w=996&t=st=1714189377~exp=1714189977~hmac=a8b4e7d0f2c6b4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4",
+    image: "https://img.freepik.com/free-photo/african-girl-woman-couch-lady-beautician_1157-48228.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&semt=ais_hybrid&w=740",
     features: [
       "Aucun prérequis nécessaire",
       "Matériel de base fourni",
@@ -98,7 +98,7 @@ const formations: Formation[] = [
     duration: "3 jours (21h)",
     sessions: 3,
     level: "Avancé",
-    image: "https://img.freepik.com/free-photo/woman-getting-face-treatment_23-2149213493.jpg?w=996&t=st=1714189377~exp=1714189977~hmac=a8b4e7d0f2c6b4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4",
+    image: "images/vieillisementformation.png",
     features: [
       "Techniques avancées de lifting non-chirurgical",
       "Traitement des rides profondes",
@@ -175,7 +175,7 @@ const Formation = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="bg-white rounded-2xl shadow-lg p-8 mb-16"
         >
-          <h2 className="text-2xl font-bold mb-8 text-center">Pourquoi choisir nos formations ?</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">Pourquoi choisir nos <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">formations</span> ?</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100">
@@ -217,7 +217,7 @@ const Formation = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-2xl font-bold mb-8 text-center">Nos programmes de formation</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">Nos <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">programmes</span> de formation</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {formations.map((formation) => (
@@ -289,7 +289,7 @@ const Formation = () => {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="bg-white rounded-2xl shadow-lg p-8 mb-16"
         >
-          <h2 className="text-2xl font-bold mb-8 text-center">Ce que disent nos étudiants</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">Ce que disent nos <span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">étudiants</span></h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -324,7 +324,7 @@ const Formation = () => {
                 <div className="pt-6">
                   <p className="text-gray-600 italic mb-4">"{testimonial.testimonial}"</p>
                   <div>
-                    <h4 className="font-semibold">{testimonial.name}</h4>
+                    <h4 className="font-semibold"><span className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">{testimonial.name}</span></h4>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>
                   </div>
                 </div>
