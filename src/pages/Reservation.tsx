@@ -51,7 +51,7 @@ const services: Service[] = [
   {
     id: 3,
     title: "Remodelage Post-Grossesse",
-    description: "Redonnez à votre corps sa splendeur d'avant bébé ! Notre combo magique agit comme une machine à remonter le temps.",
+    description: "Redonnez à votre corps sa splendeur d'avant bébé ! Notre solution agit comme une machine à remonter le temps.",
     price: 250,
     priceString: "250€",
     duration: "70 min",
@@ -78,7 +78,7 @@ const services: Service[] = [
   {
     id: 6,
     title: "Soin Anti-Âge Global",
-    description: "Lissez rides et ridules pour une peau visiblement plus jeune et éclatante.",
+    description: "Lissez rides et ridules pour une peau visiblement plus jeune et éclatante. Passer donc à l'action maintenant !",
     price: 280,
     priceString: "280€",
     duration: "60 min",
@@ -348,7 +348,7 @@ const Reservation = () => {
                             <Check size={16} /> Sélectionné
                           </span>
                         ) : (
-                          'Prendre soin'
+                          'Réserver ce soin'
                         )}
                       </button>
                     </div>
@@ -612,7 +612,7 @@ const Reservation = () => {
               Annulation gratuite jusqu'à 24h avant le rendez-vous
             </p>
             <Link 
-              to="/checkout" 
+              to="/cgu" 
               className="text-primary hover:underline mt-2 inline-block"
             >
               Voir les conditions générales

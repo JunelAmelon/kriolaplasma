@@ -60,8 +60,8 @@ const MentionsLegales = () => {
                 <p><strong>Capital social :</strong> 10 000€</p>
                 <p><strong>SIRET :</strong> 123 456 789 00012</p>
                 <p><strong>Adresse :</strong> 123 Avenue des Soins, 75001 Paris, France</p>
-                <p><strong>Téléphone :</strong> 01 23 45 67 89</p>
-                <p><strong>Email :</strong> contact@kriola-plasma.com</p>
+                <p><strong>Téléphone :</strong>+33 6 29 50 03 38</p>
+                <p><strong>Email :</strong> contact@kriolaplasma.com</p>
                 <p><strong>Directeur de la publication :</strong> Kriola Plasma</p>
               </div>
             </div>
@@ -73,9 +73,9 @@ const MentionsLegales = () => {
                 Hébergement
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-2">
-                <p><strong>Hébergeur :</strong> OVH SAS</p>
-                <p><strong>Adresse :</strong> 2 rue Kellermann, 59100 Roubaix, France</p>
-                <p><strong>Téléphone :</strong> 09 72 10 10 07</p>
+                <p><strong>Hébergeur :</strong>Ionos</p>
+                <p><strong>Adresse :</strong> 7 PLACE DE LA GARE, 57200 SARREGUEMINES</p>
+                <p><strong>Téléphone :</strong>09 70 80 89 11</p>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ const MentionsLegales = () => {
                 Crédits
               </h2>
               <div className="pl-4 border-l-2 border-primary/20 space-y-2">
-                <p><strong>Conception et développement :</strong> Kriola Plasma</p>
+                <p><strong>Conception et développement :</strong>Junel BOKO ASSOGBA</p>
                 <p><strong>Photographies :</strong> Freepik, Unsplash, Pexels</p>
                 <p><strong>Icônes :</strong> Lucide Icons</p>
               </div>
@@ -145,11 +145,11 @@ const MentionsLegales = () => {
                 </p>
                 <div className="flex items-center gap-2 mt-2">
                   <Phone size={16} className="text-primary" />
-                  <span>01 23 45 67 89</span>
+                  <span>+33 6 29 50 03 38</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail size={16} className="text-primary" />
-                  <span>contact@kriola-plasma.com</span>
+                  <span>contact@kriolaplasma.com</span>
                 </div>
               </div>
             </div>

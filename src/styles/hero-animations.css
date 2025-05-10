@@ -1,0 +1,51 @@
+/* Animations pour le carrousel de la hero section */
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 10s ease-in-out infinite alternate;
+}
+
+/* Style pour les indicateurs de slide */
+.hero-pagination {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+}
+
+.hero-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-pagination .swiper-pagination-bullet-active {
+  background-color: #ffffff;
+  width: 30px;
+  border-radius: 10px;
+}
+
+/* Animation de transition entre les slides */
+.swiper-slide-active img {
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.swiper-slide-prev img,
+.swiper-slide-next img {
+  opacity: 0;
+  transform: scale(1.05);
+}

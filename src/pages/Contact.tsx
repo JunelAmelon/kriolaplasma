@@ -346,7 +346,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold mb-2">Téléphone</h3>
                 <p className="text-gray-600 mb-4">Nous sommes disponibles du lundi au samedi</p>
                 <a href="tel:+33123456789" className="text-primary font-medium hover:underline">
-                  +33 1 23 45 67 89
+                +33 6 29 50 03 38
                 </a>
               </div>
 

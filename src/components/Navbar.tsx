@@ -1,14 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './navbar.css';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import StylishBurgerIcon from './StylishBurgerIcon';
-import StylishCloseIcon from './StylishCloseIcon';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  // Détection du scroll pour changer l'apparence du header
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const menuItems = [
     { path: '/services', label: 'Soins & Services' },
@@ -22,54 +38,62 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed w-full bg-white z-50 shadow-sm py-2 md:py-3">
+      <nav className={`fixed w-full z-40 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white shadow-md py-2' 
+          : 'bg-white py-4'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-28 md:h-32">
+          {/* Main navbar */}
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <Link to="/" className="flex items-center gap-2">
-                {/* Replace with your actual logo image */}
-                <div className="flex items-center justify-center">
-                  <img 
-                    src="./images/logo.png" 
-                    alt="Kriola Plasma Logo" 
-                    className="navbar-logo" />
-                </div>
+              <Link to="/" className="flex items-center">
+                <img 
+                  src="./images/logo.png" 
+                  alt="Kriola Plasma Logo" 
+                  className="navbar-logo" 
+                />
               </Link>
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-6">
               {menuItems.map((item, index) => (
                 <Link
                   key={index}
                   to={item.path}
-                  className={`px-4 py-2 text-gray-700 hover:text-primary relative group rounded-full transition-all duration-300 ${
-                    isActive(item.path) ? 'text-primary' : ''
+                  className={`text-gray-700 hover:text-primary transition-colors ${
+                    isActive(item.path) ? 'text-primary font-medium' : ''
                   }`}
                 >
                   {item.label}
-                  <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform transition-transform duration-300 ${
-                    isActive(item.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                  }`} />
                 </Link>
               ))}
-              <Link
+              
+              <Link 
                 to="/reservation"
-                className="ml-4 bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition-colors duration-300"
+                className="ml-3 px-5 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"
               >
                 Réserver
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
-              <StylishBurgerIcon onClick={() => setIsOpen(true)} />
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-md text-gray-600 hover:text-primary transition-colors"
+                aria-expanded="false"
+              >
+                <span className="sr-only">Ouvrir le menu</span>
+                <Menu size={24} />
+              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu - Left Drawer */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -77,72 +101,64 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/50 z-40"
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-50"
             />
             <motion.div
-              initial={{ x: '-100%' }}
+              initial={{ x: '100%' }}
               animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50"
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.3 }}
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-xl z-50 overflow-y-auto"
             >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-8">
-                  <Link to="/" className="flex items-center gap-2">
-                    {/* Replace with your actual logo image */}
-                    <div className="relative flex items-center justify-center overflow-visible">
-                      <img src="./images/logo.png" alt="Kriola Plasma Logo" className="navbar-logo-large" />
-                    </div>
-                  </Link>
-                  <StylishCloseIcon onClick={() => setIsOpen(false)} />
-                </div>
-
+              <div className="flex justify-between items-center p-4 border-b">
+                <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+                  <img src="./images/logo.png" alt="Kriola Plasma Logo" className="h-32 w-auto" />
+                </Link>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 text-gray-500"
+                  aria-label="Fermer le menu"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              <div className="px-4 py-6">
                 <div className="space-y-1">
                   {menuItems.map((item, index) => (
                     <Link
                       key={index}
                       to={item.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`flex items-center justify-between w-full px-4 py-3 rounded-xl group transition-all duration-300 ${
-                        isActive(item.path) ? 'bg-primary/5 text-primary' : 'text-gray-700 hover:bg-primary/5'
+                      className={`block px-4 py-3 text-base ${
+                        isActive(item.path)
+                          ? 'text-primary font-medium'
+                          : 'text-gray-700'
                       }`}
+                      onClick={() => setIsOpen(false)}
                     >
-                      <span className="group-hover:text-primary transition-colors">{item.label}</span>
-                      <ChevronRight
-                        size={18}
-                        className={`text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all ${
-                          isActive(item.path) ? 'text-primary translate-x-1' : ''
-                        }`}
-                      />
+                      {item.label}
                     </Link>
                   ))}
                 </div>
-
-                <div className="mt-8 space-y-4">
-                  <Link
-                    to="/reservation"
-                    onClick={() => setIsOpen(false)}
-                    className="block w-full bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-dark transition-colors duration-300 text-center"
-                  >
-                    Réserver maintenant
-                  </Link>
+                
+                <div className="mt-6 pt-6 border-t">
                   <Link
                     to="/contact"
+                    className="block w-full px-4 py-3 bg-primary text-white text-center rounded-md"
                     onClick={() => setIsOpen(false)}
-                    className="block w-full bg-gray-100 text-gray-700 px-6 py-3 rounded-xl hover:bg-gray-200 transition-colors duration-300 text-center"
                   >
-                    Contactez-nous
+                    Réserver un rendez-vous
                   </Link>
                 </div>
-
-                <div className="mt-8 pt-8 border-t">
-                  <p className="text-sm text-gray-500">
-                    Besoin d'aide ? Appelez-nous au
-                    <a href="tel:+33123456789" className="text-primary ml-1">
-                      01 23 45 67 89
-                    </a>
-                  </p>
+                
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm font-medium text-gray-500 mb-4">Contact</p>
+                  <a href="tel:+33629500338" className="flex items-center text-gray-700 mb-3">
+                    <Phone size={18} className="mr-3 text-primary" />
+                    +33 6 29 50 03 38
+                  </a>
                 </div>
               </div>
             </motion.div>

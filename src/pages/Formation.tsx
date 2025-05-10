@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { GraduationCap, Clock, Star, Users, Calendar, CheckCircle, ArrowRight, FileText, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { GraduationCap, Clock, Star, Users, Calendar, CheckCircle, ArrowRight, FileText, Mail, CalendarDays } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Types pour les formations
@@ -115,8 +115,10 @@ const formations: Formation[] = [
 ];
 
 const Formation = () => {
-  const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const [showSessionsModal, setShowSessionsModal] = useState(false);
+  const [showAllSessionsModal, setShowAllSessionsModal] = useState(false);
+  const [selectedFormation, setSelectedFormation] = useState<Formation | null>(null);
 
   const openModal = (formation: Formation) => {
     setSelectedFormation(formation);
@@ -125,6 +127,23 @@ const Formation = () => {
 
   const closeModal = () => {
     setShowModal(false);
+  };
+  
+  const openSessionsModal = (formation: Formation) => {
+    setSelectedFormation(formation);
+    setShowSessionsModal(true);
+  };
+
+  const closeSessionsModal = () => {
+    setShowSessionsModal(false);
+  };
+  
+  const openAllSessionsModal = () => {
+    setShowAllSessionsModal(true);
+  };
+
+  const closeAllSessionsModal = () => {
+    setShowAllSessionsModal(false);
   };
 
   return (
@@ -184,7 +203,7 @@ const Formation = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Expertise reconnue</h3>
               <p className="text-gray-600">
-                Formateurs certifiés avec plus de 10 ans d'expérience dans le domaine du plasma froid
+                Formateurs certifiés avec plusieurs années d'expérience dans le domaine du plasma froid
               </p>
             </div>
             
@@ -260,18 +279,28 @@ const Formation = () => {
                     </div>
                   </div>
                   
-                  <div className="flex justify-between items-center">
-                    <button 
-                      onClick={() => openModal(formation)}
-                      className="flex items-center gap-2 text-primary font-medium hover:underline"
-                    >
-                      Voir les détails
-                      <ArrowRight size={16} />
-                    </button>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex justify-between items-center">
+                      <button 
+                        onClick={() => openModal(formation)}
+                        className="flex items-center gap-2 text-primary font-medium hover:underline"
+                      >
+                        Voir les détails
+                        <ArrowRight size={16} />
+                      </button>
+                      
+                      <button 
+                        onClick={() => openSessionsModal(formation)}
+                        className="flex items-center gap-2 text-primary font-medium hover:underline"
+                      >
+                        <CalendarDays size={16} className="text-primary" />
+                        Prochaines sessions
+                      </button>
+                    </div>
                     
                     <Link 
                       to="/contact" 
-                      className="bg-gradient-to-r from-primary to-primary-dark text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-shadow"
+                      className="bg-gradient-to-r from-primary to-primary-dark text-white px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-shadow w-full text-center"
                     >
                       S'inscrire
                     </Link>
@@ -354,12 +383,15 @@ const Formation = () => {
               Demander des informations
             </Link>
             
-            <a 
-              href="#formations" 
+            <button 
+              onClick={openAllSessionsModal}
               className="border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors"
             >
-              Voir les prochaines sessions
-            </a>
+              <span className="flex items-center justify-center gap-2">
+                <CalendarDays size={18} />
+                Voir les prochaines sessions
+              </span>
+            </button>
           </div>
         </motion.div>
       </div>
@@ -483,6 +515,197 @@ const Formation = () => {
           </motion.div>
         </div>
       )}
+
+      {/* Modal des prochaines sessions */}
+      <AnimatePresence>
+        {showSessionsModal && selectedFormation && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full overflow-hidden"
+            >
+              <div className="bg-gradient-to-r from-primary to-primary-dark p-6 text-white">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-xl font-bold flex items-center gap-2">
+                    <CalendarDays size={20} />
+                    Calendrier des sessions
+                  </h3>
+                  <button 
+                    onClick={closeSessionsModal}
+                    className="bg-white/20 text-white p-2 rounded-full hover:bg-white/40 transition-colors"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                <h4 className="text-lg font-semibold mb-4 text-gray-800">{selectedFormation.title}</h4>
+                
+                <div className="mb-6">
+                  <p className="text-gray-600 mb-4">
+                    <span className="font-medium">Durée :</span> {selectedFormation.duration} | 
+                    <span className="font-medium">Niveau :</span> {selectedFormation.level}
+                  </p>
+                </div>
+                
+                <div className="mb-8">
+                  <h5 className="font-medium text-gray-800 mb-4 flex items-center gap-2">
+                    <Calendar size={18} className="text-primary" />
+                    Prochaines dates disponibles
+                  </h5>
+                  
+                  <div className="grid gap-4">
+                    {selectedFormation.startDates.map((date, index) => (
+                      <div 
+                        key={index}
+                        className="border border-gray-200 rounded-lg p-4 flex items-center justify-between hover:border-primary hover:bg-primary/5 transition-colors"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <Calendar size={24} />
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-800">{date}</p>
+                            <p className="text-sm text-gray-500">Places limitées à 8 participants</p>
+                          </div>
+                        </div>
+                        <Link 
+                          to="/contact" 
+                          className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
+                        >
+                          Réserver
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="flex justify-between items-center pt-4 border-t">
+                  <button 
+                    onClick={closeSessionsModal}
+                    className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                  >
+                    Fermer
+                  </button>
+                  
+                  <Link 
+                    to="/contact" 
+                    className="flex items-center gap-2 bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-shadow"
+                  >
+                    <Mail size={16} />
+                    Demander des informations
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+      
+      {/* Modal de toutes les sessions */}
+      <AnimatePresence>
+        {showAllSessionsModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            >
+              <div className="bg-gradient-to-r from-primary to-primary-dark p-6 text-white sticky top-0 z-10">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-xl font-bold flex items-center gap-2">
+                    <CalendarDays size={20} />
+                    Calendrier complet des formations
+                  </h3>
+                  <button 
+                    onClick={closeAllSessionsModal}
+                    className="bg-white/20 text-white p-2 rounded-full hover:bg-white/40 transition-colors"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                <p className="text-gray-600 mb-8">
+                  Consultez nos prochaines sessions de formation et réservez votre place dès maintenant.
+                  Toutes nos formations sont limitées à 8 participants pour garantir un apprentissage optimal.
+                </p>
+                
+                {formations.map((formation) => (
+                  <div key={formation.id} className="mb-10">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-16 h-16 rounded-full overflow-hidden">
+                        <img 
+                          src={formation.image} 
+                          alt={formation.title} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-800">{formation.title}</h4>
+                        <p className="text-sm text-gray-500">
+                          {formation.duration} | {formation.level} | {formation.priceString}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4 mb-6">
+                      {formation.startDates.map((date, index) => (
+                        <div 
+                          key={index}
+                          className="border border-gray-200 rounded-lg p-4 flex items-center justify-between hover:border-primary hover:bg-primary/5 transition-colors"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                              <Calendar size={20} />
+                            </div>
+                            <div>
+                              <p className="font-medium text-gray-800">{date}</p>
+                              <p className="text-xs text-gray-500">Places disponibles</p>
+                            </div>
+                          </div>
+                          <Link 
+                            to="/contact" 
+                            className="bg-primary text-white px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
+                          >
+                            Réserver
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {formation !== formations[formations.length - 1] && (
+                      <div className="border-b border-gray-200 my-6"></div>
+                    )}
+                  </div>
+                ))}
+                
+                <div className="flex justify-between items-center pt-4 border-t mt-4">
+                  <button 
+                    onClick={closeAllSessionsModal}
+                    className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                  >
+                    Fermer
+                  </button>
+                  
+                  <Link 
+                    to="/contact" 
+                    className="flex items-center gap-2 bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-shadow"
+                  >
+                    <Mail size={16} />
+                    Demander des informations
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -6,13 +6,16 @@ import ProductCard from '../components/ProductCard';
 import Cart from '../components/Cart';
 import { useCartStore } from '../store/cartStore';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectCoverflow } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, EffectFade } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+// Styles personnalisés pour l'animation de zoom lent
+import '../styles/hero-animations.css';
 
 const services = [
   {
@@ -151,16 +154,69 @@ const Home = () => {
   return (
     <>
 
-      {/* Hero Section */}<section className="relative min-h-screen flex items-center overflow-hidden bg-gray-900">
-  {/* Image en arrière-plan avec overlay professionnel */}
-  <div className="absolute inset-0 z-0">
-    <img
-      src="https://img.freepik.com/free-photo/person-enjoying-scalp-massage-spa_23-2151454837.jpg"
-      alt="Soin esthétique professionnel"
-      className="w-full h-full object-cover object-center"
-    />
-    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90" />
-  </div>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gray-900">
+        {/* Carrousel d'images en arrière-plan */}
+        <div className="absolute inset-0 z-0">
+          <Swiper
+            modules={[Autoplay, EffectFade]}
+            effect={'fade'}
+            slidesPerView={1}
+            loop={true}
+            speed={1500}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              el: '.hero-pagination',
+              clickable: true,
+              renderBullet: (_, className) => {
+                return `<span class="${className}"></span>`;
+              },
+            }}
+            className="h-full w-full"
+          >
+            <SwiperSlide className="h-full w-full">
+              <div className="relative h-full w-full">
+                <img
+                  src="https://img.freepik.com/free-photo/person-getting-micro-needling-beauty-treatment_23-2149334293.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&w=740"
+                  alt="Traitement de beauté par micro-needling"
+                  className="w-full h-full object-cover object-center transition-transform duration-10000 animate-slow-zoom"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90" />
+              </div>
+            </SwiperSlide>
+            
+            <SwiperSlide className="h-full w-full">
+              <div className="relative h-full w-full">
+                <img
+                  src="https://img.freepik.com/free-photo/adult-male-getting-hair-loss-treatment_23-2149152775.jpg?uid=R143971211&ga=GA1.1.1911634789.1729294558&w=740"
+                  alt="Traitement contre la perte de cheveux"
+                  className="w-full h-full object-cover object-center transition-transform duration-10000 animate-slow-zoom"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90" />
+              </div>
+            </SwiperSlide>
+            
+            <SwiperSlide className="h-full w-full">
+              <div className="relative h-full w-full">
+                <img
+                  src="https://img.freepik.com/free-photo/person-enjoying-scalp-massage-spa_23-2151454837.jpg"
+                  alt="Massage du cuir chevelu en spa"
+                  className="w-full h-full object-cover object-center transition-transform duration-10000 animate-slow-zoom"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90" />
+              </div>
+            </SwiperSlide>
+          </Swiper>
+          
+          {/* Indicateurs de pagination personnalisu00e9s */}
+          <div className="hero-pagination absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex gap-2"></div>
+          
+          {/* Overlay du00e9coratif pour ajouter du style */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30 z-10"></div>
+        </div>
 
   {/* Contenu principal */}
   <div className="relative z-10 container mx-auto px-6 py-24">
@@ -361,7 +417,7 @@ const Home = () => {
         Kriola Plasma, l'étincelle  
         <span>  </span>
           <span className=" text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">
-          qui réveille votre beauté
+          qui révèle votre beauté
           </span>
         </h2>
 
@@ -375,7 +431,7 @@ Nous ne vendons pas des promesses, nous créons des transformations visibles
         <div className="grid grid-cols-2 gap-4 mb-8">
           {[
             { number: "5+", label: "Ans d'expertise" },
-            { number: "450+", label: "Clients satisfaits" },
+            { number: "45+", label: "Clients satisfaits" },
             { number: "98%", label: "Satisfaction" },
             { number: "3", label: "Centres en France" }
           ].map((stat, index) => (
